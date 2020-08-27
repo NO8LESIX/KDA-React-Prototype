@@ -1,6 +1,5 @@
 import React from "react";
-import Button from "@material-ui/core/Button";
-import { Paper, IconButton, InputBase, Divider, AppBar, Grid } from "@material-ui/core";
+import { Paper, IconButton, InputBase, AppBar, Grid } from "@material-ui/core";
 import MenuIcon from '@material-ui/icons/Menu'
 import SearchIcon from '@material-ui/icons/Search';
 
