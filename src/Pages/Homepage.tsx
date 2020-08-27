@@ -1,10 +1,6 @@
 import React from "react";
-import  Navbar  from "../Components/Navbar";
-
-//CSS Imports
 import "antd/dist/antd.css";
 import { KDANavbar } from "../Components/KDANavbar";
-
 //Constants
 
 export class Homepage extends React.Component {
