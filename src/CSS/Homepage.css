@@ -1,0 +1,39 @@
+#boxes {
+    display:grid;
+    border-top: 1px solid grey;
+    justify-items: center;
+    grid-template-columns: 100%;
+}
+
+.buttons {
+    width: 75vw;
+    margin-top: 5%;
+    background-color: #512888;
+}
+
+.lastButton {
+    margin-bottom: 5%;
+}
+
+.divide {
+    font-size: large;
+    text-align: center;
+    margin-bottom: 0;
+    font-weight: 600;
+    background-color: #F8F8F8;
+    opacity: 80%
+}
+
+.divideBottom {
+    height: 46px;
+}
+
+p {
+    margin-bottom: 0;
+}
+
+.header {
+    text-align: center;
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+}

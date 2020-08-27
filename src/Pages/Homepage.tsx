@@ -1,6 +1,7 @@
 import React from "react";
 import "antd/dist/antd.css";
 import { KDANavbar } from "../Components/KDANavbar";
+import {Home_Body} from "../Components/Home_Body";
 //Constants
 
 export class Homepage extends React.Component {
@@ -20,7 +21,8 @@ export class Homepage extends React.Component {
   render() {
     return (
       <>
-        <KDANavbar />        
+        <KDANavbar />
+        <Home_Body />
       </>
     );
   }
