@@ -10,7 +10,6 @@ import {
   ListItemText,
   SwipeableDrawer,
   Toolbar,
-  Container,
 } from "@material-ui/core";
 import MenuIcon from "@material-ui/icons/Menu";
 import InboxIcon from "@material-ui/icons/MoveToInbox";
@@ -116,13 +115,11 @@ export default class KDANavbar extends React.Component<
               </React.Fragment>
             </Grid>
             <Grid item xs={12} md lg xl justify="center" alignContent="center">
-              <Container maxWidth="sm">
                 <img
                   src="https://www.k-state.edu/ksu-resources/branding/2/images/innovation-inspiration-215.png"
                   placeholder="Logo Here"
                   alt="Kansas Department of Agriculture Food Regulations"
                 />
-              </Container>
             </Grid>
             <Grid item xs={12} md lg xl>
               <Search
