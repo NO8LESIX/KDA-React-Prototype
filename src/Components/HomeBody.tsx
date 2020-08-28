@@ -11,7 +11,7 @@ export class HomeBody extends React.Component {
             </div>
             <div id="boxes">
                 <Button className="buttons" type="primary" shape="round" size={'large'}>
-                    Fresh Produce
+                    <a href="/produce">Fresh Produce</a>
                 </Button>
                 <Button className="buttons" type="primary" shape="round" size={'large'}>
                     Baked Goods
