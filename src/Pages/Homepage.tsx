@@ -1,17 +1,15 @@
 import React from "react";
 import "antd/dist/antd.css";
-import {Home_Body} from "../Components/Home_Body";
+import { HomeBody } from "../Components/HomeBody";
 import { Layout } from "antd";
 import KDANavbar from "../Components/KDANavbar";
 import KDAFooter from "../Components/KDAFooter";
-const { Header, Content, Footer } = Layout;
 
 export class Homepage extends React.Component {
-
   state = {
-    theme: 'dark',
-    current: '1',
-    collapsed: false
+    theme: "dark",
+    current: "1",
+    collapsed: false,
   };
 
   toggleCollapsed = () => {
@@ -25,7 +23,7 @@ export class Homepage extends React.Component {
       <>
         <Layout>
           <KDANavbar />
-          <Home_Body />
+          <HomeBody />
           <KDAFooter />
         </Layout>
       </>
