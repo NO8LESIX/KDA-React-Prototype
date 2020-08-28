@@ -2,7 +2,6 @@ import React from "react";
 import clsx from "clsx";
 import {
   IconButton,
-  InputBase,
   AppBar,
   Grid,
   List,
@@ -10,14 +9,13 @@ import {
   ListItemIcon,
   ListItemText,
   SwipeableDrawer,
-  Container,
   Toolbar,
-  Paper,
 } from "@material-ui/core";
 import MenuIcon from "@material-ui/icons/Menu";
-import SearchIcon from "@material-ui/icons/Search";
 import InboxIcon from "@material-ui/icons/MoveToInbox";
 import MailIcon from "@material-ui/icons/Mail";
+import { Input } from "antd";
+const { Search } = Input;
 
 type Anchor = "top" | "left" | "bottom" | "right";
 
@@ -61,9 +59,9 @@ export default class KDANavbar extends React.Component<
     this.setState({ ...this.state, drawerOpen: open });
   };
 
-  list = (anchor: Anchor) => (
+  menuDrawer = (anchor: Anchor) => (
     <div
-      className={clsx(this.list, {
+      className={clsx(this.menuDrawer, {
         fullList: anchor === "top",
       })}
       role="presentation"
@@ -89,50 +87,48 @@ export default class KDANavbar extends React.Component<
     return (
       <AppBar position="static" color="default">
         <Toolbar>
-          <Container>
-            <React.Fragment key="left">
-              <IconButton
-                onClick={this.toggleDrawer("left", true)}
-                edge="start"
-                color="inherit"
-                aria-label="open drawer"
-              >
-                <MenuIcon></MenuIcon>
-              </IconButton>
-              <SwipeableDrawer
-                anchor="left"
-                open={this.state.drawerOpen}
-                onClose={this.toggleDrawer("left", false)}
-                onOpen={this.toggleDrawer("left", true)}
-              >
-                {this.list("left")}
-              </SwipeableDrawer>
-            </React.Fragment>
-          </Container>
-          <Container>
-            <img
-              src="https://www.k-state.edu/ksu-resources/branding/2/images/innovation-inspiration-215.png"
-              placeholder="Logo Here"
-            />
-          </Container>
-          <Container>
-            <Paper>
-              <InputBase
-                className="input"
-                placeholder="Find Your Product"
-                inputProps={{ "aria-label": "search" }}
-              />
-              <>
+          <Grid
+            container
+            direction="row"
+            alignItems="center"
+            justify="space-around"
+            spacing={1}
+          >
+            <Grid item xs md lg xl>
+              <React.Fragment key="left">
                 <IconButton
-                  type="submit"
-                  className="iconButton"
-                  aria-label="search"
+                  onClick={this.toggleDrawer("left", true)}
+                  edge="start"
+                  color="inherit"
+                  aria-label="open drawer"
                 >
-                  <SearchIcon />
+                  <MenuIcon></MenuIcon>
                 </IconButton>
-              </>
-            </Paper>
-          </Container>
+                <SwipeableDrawer
+                  anchor="left"
+                  open={this.state.drawerOpen}
+                  onClose={this.toggleDrawer("left", false)}
+                  onOpen={this.toggleDrawer("left", true)}
+                >
+                  {this.menuDrawer("left")}
+                </SwipeableDrawer>
+              </React.Fragment>
+            </Grid>
+            <Grid item xs={12} md lg xl justify="center" alignContent="center">
+                <img
+                  src="https://www.k-state.edu/ksu-resources/branding/2/images/innovation-inspiration-215.png"
+                  placeholder="Logo Here"
+                  alt="Kansas Department of Agriculture Food Regulations"
+                />
+            </Grid>
+            <Grid item xs={12} md lg xl>
+              <Search
+                placeholder="Search"
+                onSearch={(value) => console.log(value)}
+                enterButton
+              />
+            </Grid>
+          </Grid>
         </Toolbar>
       </AppBar>
     );
