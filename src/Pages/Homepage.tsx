@@ -5,7 +5,6 @@ import { Layout } from "antd";
 import KDANavbar from "../Components/KDANavbar";
 import KDAFooter from "../Components/KDAFooter";
 const { Header, Content, Footer } = Layout;
-//Constants
 
 export class Homepage extends React.Component {
 
