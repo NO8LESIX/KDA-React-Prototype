@@ -3,7 +3,7 @@ import logo from "./logo.svg";
 import "./App.css";
 import { Homepage } from "./Pages/Homepage.tsx";
 import "antd/dist/antd.css";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import AboutPage from "./Pages/AboutPage";
 import SNAPInfoPage from "./Pages/SNAPInfoPage";
 import ProducePage from "./Pages/ProducePage";
@@ -52,11 +52,11 @@ function About() {
   return <AboutPage />;
 }
 
-function SNAPInfo(){
-  return <SNAPInfoPage/>
-};
+function SNAPInfo() {
+  return <SNAPInfoPage />;
+}
 
-function Produce(){
+function Produce() {
   return <ProducePage />;
 }
 
