@@ -1,11 +1,8 @@
 import React from 'react';
-import { Row, Col } from 'antd';
-import { Button, Radio } from 'antd';
-import { DownloadOutlined } from '@ant-design/icons';
-import {purple} from "color-name";
+import { Button } from 'antd';
 import "../CSS/Homepage.css";
 
-export class Home_Body extends React.Component {
+export class HomeBody extends React.Component {
     render() {
         return (
             <>

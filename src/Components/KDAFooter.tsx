@@ -1,5 +1,5 @@
 import React from "react";
-import { Grid, Typography, Button, TextField, Link, Box, styled} from "@material-ui/core";
+import { Grid, Typography, Button, TextField, Link, styled} from "@material-ui/core";
 
 const SignUpButton = styled(Button)({
     border: 0,
@@ -22,15 +22,15 @@ export default class KDAFooter extends React.Component {
         return (
             <Grid container direction="row" alignItems="center" justify="center" spacing= {2}>
                 <Grid item xs>
-                    <img src="https://upload.wikimedia.org/wikipedia/en/b/bd/KSDofAg_logo.png"/>
+                    <img src="https://upload.wikimedia.org/wikipedia/en/b/bd/KSDofAg_logo.png" alt="Kansas Department of Agriculture" />
                 </Grid>
                 <Grid item container direction="column" alignContent="center" xs >
                     <Typography variant="h6"> Support </Typography>
-                    <Link href="#"> About Us </Link>
-                    <Link href="#"> Snap Eligibility </Link>
-                    <Link href="#"> Reference Page </Link>
-                    <Link href="#"> Contact Us </Link>
-                    <Link href="#"> File A Report </Link>
+                    <Link href="/about"> About Us </Link>
+                    <Link href="/snapInfo"> Snap Eligibility </Link>
+                    <Link href="/references"> Reference Page </Link>
+                    <Link href="/contact"> Contact Us </Link>
+                    <Link href="/report"> File A Report </Link>
                 </Grid>
                 <Grid item container alignItems="center" direction="column" alignContent="center" xs >
                     <MarginTypography >Stay updated with KDA</MarginTypography>
