@@ -5,6 +5,7 @@ import { Homepage } from "./Pages/Homepage.tsx";
 import "antd/dist/antd.css";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import AboutPage from "./Pages/AboutPage";
+import SNAPInfoPage from "./Pages/SNAPInfoPage";
 
 export default function App() {
   return (
@@ -14,10 +15,10 @@ export default function App() {
           <nav>
             <ul>
               <li>
-                <Link to="/blank">Blank</Link>
+                <Link to="/">Home</Link>
               </li>
               <li>
-                <Link to="/homepage">Home</Link>
+                <Link to="/blank">Blank</Link>
               </li>
               <li>
                 <Link to="/about">About</Link>
@@ -31,6 +32,9 @@ export default function App() {
           {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
           <Switch>
+            <Route exact path="/">
+              <Home />
+            </Route>
             <Route path="/blank">
               <Blank />
             </Route>
@@ -40,8 +44,11 @@ export default function App() {
             <Route path="/reactdefault">
               <ReactDefault />
             </Route>
-            <Route path="/homepage">
-              <Home />
+            <Route path="/SNAPInfo">
+              <SNAPInfo />
+            </Route>
+            <Route path="/Produce">
+              <SNAPInfo />
             </Route>
           </Switch>
         </div>
@@ -49,17 +56,24 @@ export default function App() {
     </>
   );
 }
-
-function Blank() {
-  return <p> Blank</p>;
-}
-
 function Home() {
   return <Homepage />;
 }
 
+function Blank() {
+  return <p>Blank</p>;
+}
+
 function About() {
   return <AboutPage />;
+}
+
+function SNAPInfo(){
+  return <SNAPInfoPage/>
+};
+
+function Produce(){
+  return ;
 }
 
 function ReactDefault() {
