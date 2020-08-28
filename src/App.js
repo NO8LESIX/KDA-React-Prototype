@@ -1,16 +1,10 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-import { Homepage } from './Pages/Homepage.tsx';
+import React from "react";
+import logo from "./logo.svg";
+import "./App.css";
+import { Homepage } from "./Pages/Homepage.tsx";
 import "antd/dist/antd.css";
-
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
-} from "react-router-dom";
-
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import AboutPage from "./Pages/AboutPage";
 
 export default function App() {
   return (
@@ -57,15 +51,15 @@ export default function App() {
 }
 
 function Blank() {
-  return <p> Blank</p>
+  return <p> Blank</p>;
 }
 
 function Home() {
-  return <Homepage/>;
+  return <Homepage />;
 }
 
 function About() {
-  return <h2>About</h2>;
+  return <AboutPage />;
 }
 
 function ReactDefault() {
