@@ -7,6 +7,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import AboutPage from "./Pages/AboutPage";
 import SNAPInfoPage from "./Pages/SNAPInfoPage";
 import ProducePage from "./Pages/ProducePage";
+import ReferencePage from "./Pages/ReferencePage";
 
 export default function App() {
   return (
@@ -34,6 +35,9 @@ export default function App() {
             <Route path="/produce">
               <Produce />
             </Route>
+            <Route path="/references">
+              <Reference />
+            </Route>
           </Switch>
         </div>
       </Router>
@@ -58,6 +62,10 @@ function SNAPInfo() {
 
 function Produce() {
   return <ProducePage />;
+}
+
+function Reference() {
+  return <ReferencePage />
 }
 
 function ReactDefault() {
