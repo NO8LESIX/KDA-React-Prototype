@@ -1,0 +1,37 @@
+{
+  "types" : [
+    {
+      "id": "/canned",
+      "foodType1": "Honey",
+      "foodType2": "Nuts and Butters",
+      "foodType3": "Candies",
+      "foodType4": "Lard",
+      "children": [
+        {
+          "ProductObject": "TestTomatoes"
+        }
+      ]
+    },
+    {
+      "id": "/baked",
+      "foodType1": "Pies",
+      "foodType2": "Cookies",
+      "foodType3": "Bread",
+      "foodType4": "Pecan Pie"
+    },
+    {
+      "id": "/processed",
+      "foodType1": "Dough",
+      "foodType2": "Vacuum-Packaged",
+      "foodType3": "Non-Specialized",
+      "foodType4": "Temperature-Controlled"
+    },
+    {
+      "id": "/produce",
+      "foodType1": "Vegetables",
+      "foodType2": "Fresh Cuts",
+      "foodType3": "Fruits",
+      "foodType4": "Grass"
+    }
+  ]
+}
