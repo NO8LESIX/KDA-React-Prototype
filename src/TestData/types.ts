@@ -5,7 +5,6 @@ export enum ProductTypes {
     Canned = "Canned Goods",
 }
 
-
 export interface ProductInfo {
     name: string,
     category: ProductTypes,
