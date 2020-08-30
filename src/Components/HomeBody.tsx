@@ -1,10 +1,17 @@
 import React from "react";
-import { Button } from "antd";
+import { Button, ConfigProvider } from "antd";
 import "../CSS/Homepage.css";
 import data from "../data/FoodType.json";
-import { useParams } from "react-router-dom";
 
-export class HomeBody extends React.Component {
+interface HomeBodyProps {
+    
+}
+interface HomeBodyState {
+  names: string[];
+}
+
+export class HomeBody extends React.Component<HomeBodyProps, HomeBodyState> {
+
   categories = [
     {
       id: 0,
@@ -30,6 +37,12 @@ export class HomeBody extends React.Component {
     },
   };
 
+  handleClick = (event: React.MouseEvent<HTMLElement, MouseEvent>) => {
+    console.log("Oh Hi Mark");
+    console.log(document.getElementsByName("yes"));
+    document.getElementsByName("yes")[0].innerHTML.replace("", "memes");
+  };
+
   render() {
     return (
       <>
@@ -38,10 +51,12 @@ export class HomeBody extends React.Component {
         </div>
         <div id="boxes">
           <Button
+            name="yes"
             className="buttons"
             type="primary"
             shape="round"
             size={"large"}
+            onClick={this.handleClick}
           >
             <a href={"/produce" + this.renderURL(1)}>{this.renderSwitch(1)}</a>
           </Button>
