@@ -4,10 +4,8 @@ import React from 'react';
 
 //state and props are usually declared above the export function
 interface ButtonsProps{
-    name:obj
 }
 interface ButtonsState{
-    name:obj[];
 }
 //follow this convention when declaring new component exports
 export class Buttons extends React.Component{
@@ -19,7 +17,7 @@ export class Buttons extends React.Component{
         //you should remeber to put your semicolon at the end of the return statement, but it will compile without it
         return (
           <>
-            <button name={"pork_chop"}>Click me</button>
+            <button >Click me</button>
           </>
         );
     }
