@@ -9,7 +9,7 @@ import SNAPInfoPage from "./Pages/SNAPInfoPage";
 import ProduceTypePage from "./Pages/ProduceTypePage";
 
 
-/*const categories = [
+{/*const categories = [
   { id: 0, title: ["Produce", "Baked", "Processed", "Canned"], subcategories: [1,2,3,4]},
   { id: 1, title: ["a", "b", "c", "d"], subcategories: [1,2,3,4]},
   { id: 2, title: ["e", "e", "e", "e"], subcategories: [1,2,3,4]},
@@ -48,7 +48,7 @@ const Category = ({match}) => {
         </Switch>
       </>
   );
-};*/
+};*/}
 
 export default function App() {
   return (
@@ -58,8 +58,8 @@ export default function App() {
           {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
           <Switch>
-           /* <Route exact path="/:catId" component={Category}>
-            </Route>*/
+            {/* <Route exact path="/:catId" component={Category}>
+            </Route>*/}
             <Route exact path="/">
               <Home />
             </Route>

@@ -20,6 +20,7 @@ export class HomeBody extends React.Component {
     ];
 
     comment = {
+
         date: new Date(),
         text: 'I hope you enjoy learning React!',
         home: {
@@ -44,7 +45,7 @@ export class HomeBody extends React.Component {
                     </div>
                     <div id="boxes">
                         <Button className="buttons" type="primary" shape="round" size={'large'}>
-                            <a href={'/0'+this.renderURL(1)}>{this.renderSwitch(1)}</a>
+                            <a href={'/produce'+this.renderURL(1)}>{this.renderSwitch(1)}</a>
                         </Button>
                         <Button className="buttons" type="primary" shape="round" size={'large'}>
                             <a href={'/baked'}> {this.renderSwitch(2)}</a>
