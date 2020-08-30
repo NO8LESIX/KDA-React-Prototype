@@ -7,6 +7,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import AboutPage from "./Pages/AboutPage";
 import SNAPInfoPage from "./Pages/SNAPInfoPage";
 import ProducePage from "./Pages/ProducePage";
+import { RegulationsPage } from "./Pages/RegulationsPage";
 
 export default function App() {
   return (
@@ -19,8 +20,8 @@ export default function App() {
             <Route exact path="/">
               <Home />
             </Route>
-            <Route path="/blank">
-              <Blank />
+            <Route path="/test">
+              <Testing />
             </Route>
             <Route path="/about">
               <About />
@@ -44,8 +45,9 @@ function Home() {
   return <Homepage />;
 }
 
-function Blank() {
-  return <p>Blank</p>;
+//Use this route to test a page
+function Testing() {
+  return <RegulationsPage />;
 }
 
 function About() {
