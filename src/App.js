@@ -7,6 +7,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import AboutPage from "./Pages/AboutPage";
 import SNAPInfoPage from "./Pages/SNAPInfoPage";
 import ProduceTypePage from "./Pages/ProduceTypePage";
+import { ProductTypes } from "./TestData/types";
 
 
 {/*const categories = [
@@ -75,7 +76,7 @@ export default function App() {
             <Route path="/snapInfo">
               <SNAPInfo />
             </Route>
-            <Route path="/produce">
+            <Route path={"/" + ProductTypes.Produce}>
               <Home />
             </Route>
             <Route path="/baked">
@@ -87,7 +88,7 @@ export default function App() {
             <Route path="/processed">
               <Home />
             </Route>
-            <Route path="/produce/:id">
+            <Route path={"/" + ProductTypes.Produce + "/:id"}>
               <ProduceType />
             </Route>
           </Switch>

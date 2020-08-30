@@ -2,20 +2,50 @@ import React from "react";
 import { Button, ConfigProvider } from "antd";
 import "../CSS/Homepage.css";
 import data from "../data/FoodType.json";
+import { ProductInfo, ProductTypes, ProductList } from "../TestData/types";
 
-interface HomeBodyProps {
-    
-}
+interface HomeBodyProps {}
 interface HomeBodyState {
-  names: string[];
+  productList: ProductList;
+  productInformation?: ProductInfo;
+  currentProductType?: ProductTypes;
 }
 
 export class HomeBody extends React.Component<HomeBodyProps, HomeBodyState> {
-
+  constructor(props: any) {
+    super(props);
+    this.state = {
+      productList: {
+        productInformation0: {
+          name: "Bread",
+          category: ProductTypes.Baked,
+          description: "string",
+          snap: true,
+        },
+        productInformation1: {
+          name: "Bread",
+          category: ProductTypes.Baked,
+          description: "string",
+          snap: true,
+        },
+      },
+      productInformation: {
+        name: "Bread",
+        category: ProductTypes.Baked,
+        description: "string",
+        snap: true,
+      },
+    };
+  }
   categories = [
     {
       id: 0,
-      title: ["Produce", "Baked", "Processed", "Canned"],
+      title: [
+        ProductTypes.Produce,
+        ProductTypes.Baked,
+        ProductTypes.Processed,
+        ProductTypes.Canned,
+      ],
       subcategories: [1, 2, 3, 4],
     },
     { id: 1, title: ["a", "b", "c", "d"], subcategories: [1, 2, 3, 4] },
@@ -40,7 +70,26 @@ export class HomeBody extends React.Component<HomeBodyProps, HomeBodyState> {
   handleClick = (event: React.MouseEvent<HTMLElement, MouseEvent>) => {
     console.log("Oh Hi Mark");
     console.log(document.getElementsByName("yes"));
+    console.log(ProductTypes.Produce);
     document.getElementsByName("yes")[0].innerHTML.replace("", "memes");
+  };
+
+  getAllProductTypes = () => {};
+  renderProducts = () => {
+      return (
+        <Button
+        name="yes"
+        className="buttons"
+        type="primary"
+        shape="round"
+        size={"large"}
+        onClick={this.handleClick}
+      >
+        <a href={"/" + ProductTypes.Produce + this.renderURL(1)}>
+          {this.renderSwitch(1)}
+        </a>
+      </Button>
+      );
   };
 
   render() {
@@ -58,7 +107,9 @@ export class HomeBody extends React.Component<HomeBodyProps, HomeBodyState> {
             size={"large"}
             onClick={this.handleClick}
           >
-            <a href={"/produce" + this.renderURL(1)}>{this.renderSwitch(1)}</a>
+            <a href={"/" + ProductTypes.Produce + this.renderURL(1)}>
+              {this.renderSwitch(1)}
+            </a>
           </Button>
           <Button
             className="buttons"
@@ -84,8 +135,9 @@ export class HomeBody extends React.Component<HomeBodyProps, HomeBodyState> {
           >
             <a href={"/canned"}>{this.renderSwitch(4)}</a>
           </Button>
+          
         </div>
-        <div className="divide divideBottom"></div>
+        <div className="divide divideBottom">          {this.renderProducts}</div>
       </>
     );
   }
