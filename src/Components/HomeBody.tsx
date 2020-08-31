@@ -135,9 +135,8 @@ export class HomeBody extends React.Component<HomeBodyProps, HomeBodyState> {
           >
             <a href={"/canned"}>{this.renderSwitch(4)}</a>
           </Button>
-          
         </div>
-        <div className="divide divideBottom">          {this.renderProducts}</div>
+        <div className="divide divideBottom"></div>
       </>
     );
   }
