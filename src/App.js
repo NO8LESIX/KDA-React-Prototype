@@ -6,7 +6,6 @@ import "antd/dist/antd.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import AboutPage from "./Pages/AboutPage";
 import SNAPInfoPage from "./Pages/SNAPInfoPage";
-import ProducePage from "./Pages/ProducePage";
 import FileReportPage from "./Pages/FileReportPage";
 import ReferencePage from "./Pages/ReferencePage";
 
@@ -34,7 +33,19 @@ export default function App() {
               <SNAPInfo />
             </Route>
             <Route path="/produce">
-              <Produce />
+              <Home />
+            </Route>
+            <Route path="/baked">
+              <Home />
+            </Route>
+            <Route path="/canned">
+              <Home />
+            </Route>
+            <Route path="/processed">
+              <Home />
+            </Route>
+            <Route path="/produce/:id">
+              <Home />
             </Route>
             <Route path="/report">
                 <FileReport />
@@ -62,10 +73,6 @@ function About() {
 
 function SNAPInfo() {
   return <SNAPInfoPage />;
-}
-
-function Produce() {
-  return <ProducePage />;
 }
 
 function FileReport() {
