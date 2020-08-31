@@ -7,7 +7,11 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import AboutPage from "./Pages/AboutPage";
 import SNAPInfoPage from "./Pages/SNAPInfoPage";
 import ProducePage from "./Pages/ProducePage";
+<<<<<<< HEAD
 import FileReportPage from "./Pages/FileReportPage";
+=======
+import ReferencePage from "./Pages/ReferencePage";
+>>>>>>> 043a093f522757ec98ac4506cc05b94a55f73050
 
 export default function App() {
   return (
@@ -35,8 +39,13 @@ export default function App() {
             <Route path="/produce">
               <Produce />
             </Route>
+<<<<<<< HEAD
             <Route path="/report">
                 <FileReport />
+=======
+            <Route path="/references">
+              <Reference />
+>>>>>>> 043a093f522757ec98ac4506cc05b94a55f73050
             </Route>
           </Switch>
         </div>
@@ -64,8 +73,13 @@ function Produce() {
   return <ProducePage />;
 }
 
+<<<<<<< HEAD
 function FileReport() {
     return <FileReportPage />;
+=======
+function Reference() {
+  return <ReferencePage />
+>>>>>>> 043a093f522757ec98ac4506cc05b94a55f73050
 }
 
 function ReactDefault() {
