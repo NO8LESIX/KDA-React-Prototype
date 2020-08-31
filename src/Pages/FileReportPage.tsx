@@ -1,10 +1,9 @@
 import React from "react";
-import { Grid, Typography, Button, TextField, Link, styled } from "@material-ui/core";
+import { Grid, Typography, Link } from "@material-ui/core";
 import "antd/dist/antd.css";
 import { Layout } from "antd";
 import KDANavbar from "../Components/KDANavbar";
 import KDAFooter from "../Components/KDAFooter";
-import Box from '@material-ui/core/Box';
 
 export default class FileReportPage extends React.Component {
     render() {
