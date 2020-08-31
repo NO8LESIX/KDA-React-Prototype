@@ -14,7 +14,7 @@ export class Buttons extends React.Component{
         //you should remeber to put your semicolon at the end of the return statement, but it will compile without it
         return (
           <>
-            <button>Click me</button>
+            <button name={"pork_chop"}>Click me</button>
           </>
         );
     }
