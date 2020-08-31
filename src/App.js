@@ -9,6 +9,8 @@ import SNAPInfoPage from "./Pages/SNAPInfoPage";
 import { RegulationsPage } from "./Pages/RegulationsPage";
 import FileReportPage from "./Pages/FileReportPage";
 import ReferencePage from "./Pages/ReferencePage";
+import ProducePage from "./Pages/ProductTypePage";
+
 
 export default function App() {
   return (
@@ -33,7 +35,7 @@ export default function App() {
             <Route path="/snapInfo">
               <SNAPInfo />
             </Route>
-            <Route path="/produce">
+            <Route exact path="/produce">
               <Home />
             </Route>
             <Route path="/baked">
@@ -45,8 +47,11 @@ export default function App() {
             <Route path="/processed">
               <Home />
             </Route>
-            <Route path="/produce/:id">
+            <Route exact path="/produce/:id">
               <Home />
+            </Route>
+            <Route exact path="/produce/:id/:id">
+              <ProductPage />
             </Route>
             <Route path="/report">
                 <FileReport />
@@ -62,6 +67,10 @@ export default function App() {
 }
 function Home() {
   return <Homepage />;
+}
+
+function ProductPage() {
+  return <ProducePage />;
 }
 
 //Use this route to test a page
