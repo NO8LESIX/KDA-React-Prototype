@@ -8,15 +8,15 @@ export class HomeBody extends React.Component {
 
     //List of all categories for Product Types. May need to be transferred into JSON or SQL file in the future
     categories = [
-        { id: 0, parent: "Original", title: ["Produce", "Baked", "Processed", "Canned"], subcategories: [1,2,3,4]},
-        { id: 1, parent: "produce", title: ["Vegetables", "Fresh Cuts", "Fruits", "Sprouts"], subcategories: [5,2,3,4]},
-        { id: 2, parent: "baked", title: ["Pies", "Cookies", "Bread", "Pecan Pie"], subcategories: [1,2,3,4]},
-        { id: 3, parent: "processed", title: ["Dough", "Vacuum-Packaged", "Non-Specialized", "Temperature-Controlled"], subcategories: [1,2,3,4]},
-        { id: 4, parent: "canned", title: ["Honey", "Nuts and Butters", "Candies", "Lard"], subcategories: [1,2,3,4]},
-        { id: 5, parent: "Vegetables", title: ["Carrots", "Peas", "Broccoli", "Corn"], subcategories: [6,7,8,9]},
-        { id: 6, parent: "Fresh Cuts", title: ["Cut Berries", "Cut Herbs", "Cut Carrots", "Cut Greens"], subcategories: [6,7,8,9]},
-        { id: 7, parent: "Fruits", title: ["Tomatoes", "Apple", "Orange", "Apricot"], subcategories: [6,7,8,9]},
-        { id: 8, parent: "Sprouts", title: ["Alfalfa Sprouts", "Bean Sprouts", "Mung Sprouts", "Lentil Sprouts"], subcategories: [6,7,8,9]},
+        { id: 0, parent: "Browse Regulations by Food Type:", title: ["Produce", "Baked", "Processed", "Canned"], subcategories: [1,2,3,4]},
+        { id: 1, parent: "Produce:", title: ["Vegetables", "Fresh Cuts", "Fruits", "Sprouts"], subcategories: [5,2,3,4]},
+        { id: 2, parent: "Baked:", title: ["Pies", "Cookies", "Bread", "Pecan Pie"], subcategories: [1,2,3,4]},
+        { id: 3, parent: "Processed:", title: ["Dough", "Vacuum-Packaged", "Non-Specialized", "Temperature-Controlled"], subcategories: [1,2,3,4]},
+        { id: 4, parent: "Canned:", title: ["Honey", "Nuts and Butters", "Candies", "Lard"], subcategories: [1,2,3,4]},
+        { id: 5, parent: "Vegetables:", title: ["Carrots", "Peas", "Broccoli", "Corn"], subcategories: [6,7,8,9]},
+        { id: 6, parent: "Fresh Cuts:", title: ["Cut Berries", "Cut Herbs", "Cut Carrots", "Cut Greens"], subcategories: [6,7,8,9]},
+        { id: 7, parent: "Fruits:", title: ["Tomatoes", "Apple", "Orange", "Apricot"], subcategories: [6,7,8,9]},
+        { id: 8, parent: "Sprouts:", title: ["Alfalfa Sprouts", "Bean Sprouts", "Mung Sprouts", "Lentil Sprouts"], subcategories: [6,7,8,9]},
 
     ];
 
@@ -27,6 +27,7 @@ export class HomeBody extends React.Component {
         text: 'I hope you enjoy learning React!',
         currentID: 0,
         currentURLID: "",
+        parent: "",
         home: {
             produce: 'Fresh Produce',
             produceURL: 'produce',
@@ -43,19 +44,19 @@ export class HomeBody extends React.Component {
             return (
                 <>
                     <div className="divide">
-                        <p className="header">Browse Regulations by Food Type:</p>
+                        <p className="header">{this.getParent(this.getID())}</p>
                     </div>
                     <div id="boxes">
-                        <Button className="buttons" type="primary" shape="round" size={'large'} >
-                            <a href={'' + this.renderURL(1)}>{this.retrieveCategories(this.getID(),0)}</a>
+                        <Button className="buttons" type="primary" shape="round" >
+                            <a href={'' + this.renderURL(1)}>{this.retrieveCategories(this.comment.currentID,0)}</a>
                         </Button>
-                        <Button className="buttons" type="primary" shape="round" size={'large'}>
+                        <Button className="buttons" type="primary" shape="round">
                             <a href={'' + this.renderURL(2)}> {this.retrieveCategories(this.comment.currentID,1)}</a>
                         </Button>
-                        <Button className="buttons" type="primary" shape="round" size={'large'}>
+                        <Button className="buttons" type="primary" shape="round">
                             <a href={'' + this.renderURL(3)}>{this.retrieveCategories(this.comment.currentID,2)}</a>
                         </Button>
-                        <Button className="buttons lastButton" type="primary" shape="round" size={'large'}>
+                        <Button className="buttons lastButton" type="primary" shape="round">
                             <a href={'' + this.renderURL(4)}>{this.retrieveCategories(this.comment.currentID,3)}</a>
                         </Button>
                     </div>
@@ -64,6 +65,20 @@ export class HomeBody extends React.Component {
                 </>
             );
 
+    }
+
+    //Retrieves Header
+    getParent(num: number)
+    {
+        this.categories.forEach((data) => {
+            if(data.id === num)
+            {
+                console.log("Parent:" + data.parent);
+                this.comment.parent = data.parent;
+            }
+        });
+
+        return this.comment.parent;
     }
 
     //Retrieves categories for each child name
