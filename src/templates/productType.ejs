@@ -1,0 +1,14 @@
+<!doctype html>
+<head>
+    <title>Kansas Computer Science Standards</title>
+    <link href="../CSS/Homepage.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="#" />
+</head>
+<html>
+<% queries.forEach((query) =>{ %>
+    <Button class="buttons">
+        <a href= {query.childURL}><%= query.identifier %></a>
+    </Button>
+<% }) %>
+</html>

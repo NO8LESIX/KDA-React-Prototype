@@ -35,7 +35,19 @@ export default function App() {
               <SNAPInfo />
             </Route>
             <Route path="/produce">
-              <Produce />
+              <Home />
+            </Route>
+            <Route path="/baked">
+              <Home />
+            </Route>
+            <Route path="/canned">
+              <Home />
+            </Route>
+            <Route path="/processed">
+              <Home />
+            </Route>
+            <Route path="/produce/:id">
+              <Home />
             </Route>
             <Route path="/report">
                 <FileReport />
@@ -64,10 +76,6 @@ function About() {
 
 function SNAPInfo() {
   return <SNAPInfoPage />;
-}
-
-function Produce() {
-  return <ProducePage />;
 }
 
 function FileReport() {
