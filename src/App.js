@@ -3,11 +3,12 @@ import logo from "./logo.svg";
 import "./App.css";
 import { Homepage } from "./Pages/Homepage.tsx";
 import "antd/dist/antd.css";
-import { BrowserRouter as Router, Switch, Route} from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import AboutPage from "./Pages/AboutPage";
 import SNAPInfoPage from "./Pages/SNAPInfoPage";
-
-
+import ProducePage from "./Pages/ProducePage";
+import FileReportPage from "./Pages/FileReportPage";
+import ReferencePage from "./Pages/ReferencePage";
 
 export default function App() {
   return (
@@ -33,19 +34,13 @@ export default function App() {
               <SNAPInfo />
             </Route>
             <Route path="/produce">
-              <Home />
+              <Produce />
             </Route>
-            <Route path="/baked">
-              <Home />
-            </Route>
-            <Route path="/canned">
-              <Home />
-            </Route>
-            <Route path="/processed">
-              <Home />
-            </Route>
-            <Route path="/produce/:id">
-              <Home />
+            <Route path="/report">
+                <FileReport />
+                </Route>
+            <Route path="/references">
+              <Reference />
             </Route>
           </Switch>
         </div>
@@ -67,6 +62,17 @@ function About() {
 
 function SNAPInfo() {
   return <SNAPInfoPage />;
+}
+
+function Produce() {
+  return <ProducePage />;
+}
+
+function FileReport() {
+  return <FileReportPage />;
+}
+function Reference() {
+  return <ReferencePage />
 }
 
 function ReactDefault() {
