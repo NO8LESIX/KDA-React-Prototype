@@ -3,12 +3,7 @@
 import React from 'react';
 
 //state and props are usually declared above the export function
-interface ButtonsProps{
-    name:obj
-}
-interface ButtonsState{
-    name:obj[];
-}
+
 //follow this convention when declaring new component exports
 export class Buttons extends React.Component{
 

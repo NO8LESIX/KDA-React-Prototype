@@ -2,6 +2,7 @@
   "types" : [
     {
       "id": "/canned",
+      "idNum": 4,
       "foodType1": "Honey",
       "foodType2": "Nuts and Butters",
       "foodType3": "Candies",
@@ -14,6 +15,7 @@
     },
     {
       "id": "/baked",
+      "idNum": 2,
       "foodType1": "Pies",
       "foodType2": "Cookies",
       "foodType3": "Bread",
@@ -21,6 +23,7 @@
     },
     {
       "id": "/processed",
+      "idNum": 3,
       "foodType1": "Dough",
       "foodType2": "Vacuum-Packaged",
       "foodType3": "Non-Specialized",
@@ -28,10 +31,27 @@
     },
     {
       "id": "/produce",
+      "idNum": 1,
       "foodType1": "Vegetables",
       "foodType2": "Fresh Cuts",
       "foodType3": "Fruits",
       "foodType4": "Grass"
+    },
+    {
+      "id": "/produce/1",
+      "idNum": 5
+    },
+    {
+      "id": "/produce/2",
+      "idNum": 6
+    },
+    {
+      "id": "/produce/3",
+      "idNum": 7
+    },
+    {
+      "id": "/produce/4",
+      "idNum": 8
     }
   ]
 }
