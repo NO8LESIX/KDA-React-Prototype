@@ -10,12 +10,12 @@ import ProducePage from "./Pages/ProducePage";
 import FileReportPage from "./Pages/FileReportPage";
 import ReferencePage from "./Pages/ReferencePage";
 
+
 export default function App() {
   return (
-    <>
       <Router>
         <div>
-          {/* A <Switch> looks through its children <Route>s and
+            {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
           <Switch>
             <Route exact path="/">
@@ -37,17 +37,17 @@ export default function App() {
               <Produce />
             </Route>
             <Route path="/report">
-                <FileReport />
-                </Route>
+              <FileReport />
+            </Route>
             <Route path="/references">
               <Reference />
             </Route>
           </Switch>
         </div>
       </Router>
-    </>
   );
 }
+
 function Home() {
   return <Homepage />;
 }
@@ -75,23 +75,23 @@ function Reference() {
   return <ReferencePage />
 }
 
-function ReactDefault() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
+    function ReactDefault() {
+        return (
+            <div className="App">
+                <header className="App-header">
+                    <img src={logo} className="App-logo" alt="logo" />
+                    <p>
+                        Edit <code>src/App.js</code> and save to reload.
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
+                    <a
+                        className="App-link"
+                        href="https://reactjs.org"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        Learn React
         </a>
-      </header>
-    </div>
-  );
-}
+                </header>
+            </div>
+        );
+    }
