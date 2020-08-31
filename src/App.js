@@ -6,7 +6,6 @@ import "antd/dist/antd.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import AboutPage from "./Pages/AboutPage";
 import SNAPInfoPage from "./Pages/SNAPInfoPage";
-import ProducePage from "./Pages/ProducePage";
 import { RegulationsPage } from "./Pages/RegulationsPage";
 import FileReportPage from "./Pages/FileReportPage";
 import ReferencePage from "./Pages/ReferencePage";
