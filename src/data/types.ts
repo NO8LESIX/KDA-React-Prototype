@@ -17,3 +17,18 @@ export interface ProductInfo {
 export interface ProductList {
     [key: string]: ProductInfo
 }
+
+export interface ContactInfo {
+    name: string,
+    website?: string,
+    email?: string,
+    phone?: string
+}
+export interface ReferenceInfo {
+    questionsOn: string,
+    contacts: ContactInfo[]
+}
+
+export interface ReferenceList {
+    [key: string]: ReferenceInfo
+}
