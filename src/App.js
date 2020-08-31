@@ -8,6 +8,7 @@ import AboutPage from "./Pages/AboutPage";
 import SNAPInfoPage from "./Pages/SNAPInfoPage";
 import ProducePage from "./Pages/ProducePage";
 import FileReportPage from "./Pages/FileReportPage";
+import ReferencePage from "./Pages/ReferencePage";
 
 export default function App() {
   return (
@@ -37,6 +38,9 @@ export default function App() {
             </Route>
             <Route path="/report">
                 <FileReport />
+                </Route>
+            <Route path="/references">
+              <Reference />
             </Route>
           </Switch>
         </div>
@@ -65,7 +69,10 @@ function Produce() {
 }
 
 function FileReport() {
-    return <FileReportPage />;
+  return <FileReportPage />;
+}
+function Reference() {
+  return <ReferencePage />
 }
 
 function ReactDefault() {
