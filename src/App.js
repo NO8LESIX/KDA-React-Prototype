@@ -7,16 +7,9 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import AboutPage from "./Pages/AboutPage";
 import SNAPInfoPage from "./Pages/SNAPInfoPage";
 import ProducePage from "./Pages/ProducePage";
-<<<<<<< HEAD
-<<<<<<< HEAD
-import FileReportPage from "./Pages/FileReportPage";
-=======
-import ReferencePage from "./Pages/ReferencePage";
->>>>>>> 043a093f522757ec98ac4506cc05b94a55f73050
-=======
 import FileReportPage from "./Pages/FileReportPage";
 import ReferencePage from "./Pages/ReferencePage";
->>>>>>> 1a0ff6b03abec5ffc717094964896b487d8aa4bc
+
 
 
 export default function App() {
@@ -44,21 +37,11 @@ export default function App() {
             <Route path="/produce">
               <Produce />
             </Route>
-<<<<<<< HEAD
-<<<<<<< HEAD
-            <Route path="/report">
-                <FileReport />
-=======
-            <Route path="/references">
-              <Reference />
->>>>>>> 043a093f522757ec98ac4506cc05b94a55f73050
-=======
             <Route path="/report">
               <FileReport />
             </Route>
             <Route path="/references">
               <Reference />
->>>>>>> 1a0ff6b03abec5ffc717094964896b487d8aa4bc
             </Route>
           </Switch>
         </div>
@@ -86,21 +69,12 @@ function Produce() {
   return <ProducePage />;
 }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-function FileReport() {
-    return <FileReportPage />;
-=======
-function Reference() {
-  return <ReferencePage />
->>>>>>> 043a093f522757ec98ac4506cc05b94a55f73050
-=======
+
 function FileReport() {
   return <FileReportPage />;
 }
 function Reference() {
   return <ReferencePage />
->>>>>>> 1a0ff6b03abec5ffc717094964896b487d8aa4bc
 }
 
     function ReactDefault() {
