@@ -40,8 +40,6 @@ export class HomeBody extends React.Component {
 
 
 
-
-
     //Renders display
     render() {
 
@@ -73,7 +71,7 @@ export class HomeBody extends React.Component {
         });
 
         return this.comment.titles.map( (data,index) => {
-            let replace = '/' + data.replace(" ","%").toLowerCase();
+            let replace = '/' + data.replace(" ","_").toLowerCase();
             if(this.comment.home.url !== '/')
             {
                 replace = this.comment.home.url + replace;
@@ -148,7 +146,21 @@ export class HomeBody extends React.Component {
 
     //Retrieves current Product Parent ID for display
     getID() {
-        Data.types.forEach( (data) => {
+
+        let lastUrl = this.comment.home.url.split('/').pop();
+
+
+        console.log("LastBitofURL: " + lastUrl);
+
+        this.categories.forEach( (data) => {
+            if(data.parent.replace(' ','_').toLowerCase() == lastUrl)
+            {
+                this.comment.currentID = data.id;
+            }
+        });
+
+
+        /*Data.types.forEach( (data) => {
             if (data.id === this.comment.home.url) {
                 this.comment.currentID = data.idNum;
             }
@@ -156,7 +168,7 @@ export class HomeBody extends React.Component {
             {
                 return this.comment.currentID;
             }
-        });
+        });*/
         return this.comment.currentID;
     }
 
