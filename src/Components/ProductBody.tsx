@@ -1,8 +1,8 @@
 import React from "react";
 import "../CSS/Homepage.css";
-import data from "../data/FoodType.json";
-import { ProductInfo, ProductTypes } from "../data/types";
-import { TestProductList } from "../data/TestData"
+import Data from "../Data/FoodType.json";
+import { ProductInfo, ProductTypes } from "../Data/types";
+import { TestProductList } from "../Data/TestData"
 import {bool} from "prop-types";
 
 interface RegulationsPageProps {
@@ -137,7 +137,7 @@ export class ProductBody extends React.Component<
 
     //Retrieves current Product Parent ID for display
     getIDName() {
-        data.types.forEach( (data) => {
+        Data.types.forEach( (data) => {
             if (data.id === this.comment.home.url) {
                 this.comment.currentIDName = data.idName;
             }
