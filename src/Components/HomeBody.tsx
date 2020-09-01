@@ -3,9 +3,12 @@ import { Button } from 'antd';
 import "../CSS/Homepage.css";
 //import Data from "../Data/FoodType.json";
 import RightData from "../Data/FoodCategories.json";
+//import { useHistory } from "react-router-dom";
 
+//<button onClick={() => useHistory().goBack()}>Back</button>
 
 export class HomeBody extends React.Component {
+
 
     //List of all categories for Product Types. May need to be transferred into JSON or SQL file in the future
     /*categories = [
@@ -29,7 +32,6 @@ export class HomeBody extends React.Component {
         subcategories: [0],
         url: window.location.pathname
     };
-
 
 
     //Renders display
@@ -62,7 +64,7 @@ export class HomeBody extends React.Component {
             }
         });
 
-        return this.comment.titles.map( (data,index) => {
+        return this.comment.titles.map( (data) => {
             let replace = '/' + data.replace(" ","_").toLowerCase();
             if(this.comment.url !== '/')
             {
@@ -91,7 +93,6 @@ export class HomeBody extends React.Component {
 
         return this.comment.parent;
     }
-
 
 
     //Retrieves current Product Parent ID for display
