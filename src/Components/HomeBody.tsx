@@ -90,8 +90,8 @@ export class HomeBody extends React.Component {
             if(data.id === num)
             {
                 console.log("NEW ID:" + this.comment.currentID);
-                //console.log("Type: "+ data.title[val]);
-                //return "HI" + data.title[val];
+                //console.log("Type: "+ Data.title[val]);
+                //return "HI" + Data.title[val];
                 this.comment.text = data.title[val];
             }
         });
