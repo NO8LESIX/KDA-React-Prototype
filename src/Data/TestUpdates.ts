@@ -1,4 +1,4 @@
-import { UpdateList } from "./types"
+import { UpdateList } from "../Data/types"
 
 export const TestUpdates: UpdateList = {
     "SAMPLE UPDATE 1":
