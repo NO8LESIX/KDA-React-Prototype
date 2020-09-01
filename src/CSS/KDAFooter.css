@@ -6,3 +6,11 @@
 .signUp {
     margin: 12px;
 }
+
+.navbarGradient{
+    background-image: linear-gradient(#7137bd, #4f2684);
+}
+
+.linkText{
+    text-decoration:none;
+}

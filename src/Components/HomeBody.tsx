@@ -4,7 +4,6 @@ import "../CSS/Homepage.css";
 //import Data from "../Data/FoodType.json";
 import RightData from "../Data/FoodCategories.json";
 
-
 export class HomeBody extends React.Component {
 
     //List of all categories for Product Types. May need to be transferred into JSON or SQL file in the future
