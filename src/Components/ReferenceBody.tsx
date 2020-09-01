@@ -1,7 +1,6 @@
 import React from "react";
-import { Grid, Typography, Card, CardContent} from "@material-ui/core";
-import { references } from "../data/References" 
-
+import { Typography} from "@material-ui/core";
+import { references } from "../Data/References" 
 import Accordion from '@material-ui/core/Accordion';
 import AccordionSummary from '@material-ui/core/AccordionSummary';
 import AccordionDetails from '@material-ui/core/AccordionDetails';
@@ -15,8 +14,6 @@ import TableRow from '@material-ui/core/TableRow';
 import "../CSS/ReferenceBody.css";
 
 export default class ReferenceBody extends React.Component {
-
-
     render () {
         return (
             <div className="referenceBody">
