@@ -6,6 +6,7 @@ import { Descriptions } from "antd";
 import { ProductInfo, ProductTypes } from "../Data/types";
 
 interface RegulationsPageProps {
+  productProp: ProductInfo;
 }
 interface RegulationsPageState {
   productInformation: ProductInfo;
@@ -22,7 +23,8 @@ export class RegulationsPage extends React.Component<
         name: "string",
         category: ProductTypes.Baked,
         description: "string",
-        snap: true,
+        snap: true,        
+        requirements: [""],
       },
     };
   }
@@ -34,15 +36,21 @@ export class RegulationsPage extends React.Component<
         {/* Quick reference card info next */}
         {/* Product Description */}
         {/* Additional Information */}
-
-        <Grid container alignItems="center" xs={12}>
-          <Grid item xs={12} md lg xl alignContent="center">
+        <br />
+        <Grid
+          container
+          direction="column"
+          justify="flex-start"
+          alignItems="center"
+          xs={12}
+        >
+          <Grid item xs={12} md lg xl alignContent="center" spacing={2}>
             <img
               src="https://www.k-state.edu/ksu-resources/branding/2/images/innovation-inspiration-215.png"
               alt="Product Design Here"
             />
           </Grid>
-          <Grid item xs={12} md lg={6} xl>
+          <Grid item xs={12} md lg xl>
             <Descriptions
               title="Responsive Descriptions"
               bordered
@@ -73,8 +81,8 @@ export class RegulationsPage extends React.Component<
               </Descriptions.Item>
             </Descriptions>
           </Grid>
-          <Grid item xs={12} md lg xl></Grid>
-          <Grid item xs={12} md lg xl></Grid>
+          <Grid item xs={12} md lg xl><p>test</p></Grid>
+          <Grid item xs={12} md lg xl><p>test</p></Grid>
         </Grid>
 
         <KDAFooter />
