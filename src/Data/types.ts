@@ -33,3 +33,14 @@ export interface ReferenceInfo {
 export interface ReferenceList {
     [key: string]: ReferenceInfo
 }
+
+export interface UpdateInfo {
+    title: string,
+    preview?: string,
+    description?: string,
+    date?: string,
+}
+
+export interface UpdateList {
+    [key: string]: UpdateInfo
+}
