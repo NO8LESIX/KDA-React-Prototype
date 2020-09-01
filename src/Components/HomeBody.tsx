@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button } from 'antd';
 import "../CSS/Homepage.css";
-import data from "../data/FoodType.json";
+import data from "../Data/FoodType.json";
 
 
 export class HomeBody extends React.Component {
@@ -17,12 +17,10 @@ export class HomeBody extends React.Component {
         { id: 6, parent: "Fresh Cuts", title: ["Cut Berries", "Cut Herbs", "Cut Carrots", "Cut Greens"], subcategories: [6,7,8,9]},
         { id: 7, parent: "Fruits", title: ["Tomatoes", "Apple", "Orange", "Apricot"], subcategories: [6,7,8,9]},
         { id: 8, parent: "Sprouts", title: ["Alfalfa Sprouts", "Bean Sprouts", "Mung Sprouts", "Lentil Sprouts"], subcategories: [6,7,8,9]},
-
     ];
 
     //Properties accessed in methods below to store temporary variables
     comment = {
-
         date: new Date(),
         text: 'I hope you enjoy learning React!',
         currentID: 0,
@@ -83,19 +81,18 @@ export class HomeBody extends React.Component {
 
     //Retrieves categories for each child name
     retrieveCategories(num: number, val: number) {
-        //+(string.replace(this.retrieveCategories(this.getID(),0)))
-        this.categories.forEach((data) => {
-            if(data.id === num)
-            {
-                console.log("NEW ID:" + this.comment.currentID);
-                console.log("Type: "+ data.title[val]);
-                //return "HI" + data.title[val];
-                this.comment.text = data.title[val];
-            }
-        });
+      //+(string.replace(this.retrieveCategories(this.getID(),0)))
+      this.categories.forEach((data) => {
+        if (data.id === num) {
+          console.log("NEW ID:" + this.comment.currentID);
+          console.log("Type: " + data.title[val]);
+          //return "HI" + data.title[val];
+          this.comment.text = data.title[val];
+        }
+      });
 
-        return this.comment.text;
-        //return null;
+      return this.comment.text;
+      //return null;
     }
 
     //Renders correct URLs for children navigation
