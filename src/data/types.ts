@@ -5,13 +5,19 @@ export enum ProductTypes {
     Canned = "Canned Goods",
 }
 
+export enum ProductLicenses{
+    KDALicense = "Kansas Departemnt of Agriculture License"
+}
+
 export interface ProductInfo {
     name: string,
     category: ProductTypes,
     description: string,
     snap: boolean,
+    regulatoryRequirements?: string,
+    examples?: string[],
     requirements: string[],
-    relatedItems?: string[]  ,
+    relatedItems?: string[],
     url?: string,
 }
 
