@@ -10,8 +10,9 @@ export interface ProductInfo {
     category: ProductTypes,
     description: string,
     snap: boolean,
-    requirements?: string[],
-    relatedItems?: string[],
+    requirements: string[],
+    relatedItems?: string[]  ,
+    url?: string,
 }
 
 export interface ProductList {
