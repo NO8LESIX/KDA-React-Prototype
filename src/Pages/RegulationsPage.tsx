@@ -22,7 +22,8 @@ export class RegulationsPage extends React.Component<
         name: "string",
         category: ProductTypes.Baked,
         description: "string",
-        snap: true,
+        snap: true,        
+        requirements: [""],
       },
     };
   }

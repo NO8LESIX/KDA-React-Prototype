@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button } from 'antd';
 import "../CSS/Homepage.css";
-import data from "../Data/FoodType.json";
+import Data from "../Data/FoodType.json";
 
 
 export class HomeBody extends React.Component {
@@ -35,6 +35,10 @@ export class HomeBody extends React.Component {
             url: window.location.pathname,
         },
     };
+
+
+
+
 
     //Renders display
     render() {
@@ -81,15 +85,16 @@ export class HomeBody extends React.Component {
 
     //Retrieves categories for each child name
     retrieveCategories(num: number, val: number) {
-      //+(string.replace(this.retrieveCategories(this.getID(),0)))
-      this.categories.forEach((data) => {
-        if (data.id === num) {
-          console.log("NEW ID:" + this.comment.currentID);
-          console.log("Type: " + data.title[val]);
-          //return "HI" + data.title[val];
-          this.comment.text = data.title[val];
-        }
-      });
+        //+(string.replace(this.retrieveCategories(this.getID(),0)))
+        this.categories.forEach((data) => {
+            if(data.id === num)
+            {
+                console.log("NEW ID:" + this.comment.currentID);
+                //console.log("Type: "+ data.title[val]);
+                //return "HI" + data.title[val];
+                this.comment.text = data.title[val];
+            }
+        });
 
       return this.comment.text;
       //return null;
@@ -100,7 +105,7 @@ export class HomeBody extends React.Component {
         //let { id } = useParams();
        // let { slug }: any = useParams();
        // return <div>Now showing post {slug}</div>;
-        data.types.forEach( (data) => {
+        Data.types.forEach( (data) => {
             if (data.idNum === num) {
                 this.comment.currentURLID = data.id;
             }
@@ -111,7 +116,8 @@ export class HomeBody extends React.Component {
         if(this.comment.home.url !== '/')
         {
 
-            return this.comment.home.url + "/"+num;
+            return this.comment.home.url + '/'+num;
+            //return '/canned';
         }
         else
         {
@@ -121,14 +127,12 @@ export class HomeBody extends React.Component {
 
     //Retrieves current Product Parent ID for display
     getID() {
-        data.types.forEach( (data) => {
+        Data.types.forEach( (data) => {
             if (data.id === this.comment.home.url) {
-                console.log("WORKED");
                 this.comment.currentID = data.idNum;
             }
             else
             {
-                console.log("DID NOT");
                 return this.comment.currentID;
             }
         });
@@ -137,7 +141,6 @@ export class HomeBody extends React.Component {
 
     //Outdated May Need Removal in Future
     renderSwitch(num: number) {
-        console.log(this.comment.home.url);
         switch(this.comment.home.url) {
             case '/':
                 switch(num) {
@@ -152,7 +155,7 @@ export class HomeBody extends React.Component {
                 }
                 break;
             default:
-                return data.types.forEach( (data) => {
+                return Data.types.forEach( (data) => {
                     if (data.id === this.comment.home.url) {
                         switch (num) {
                             case 1:
