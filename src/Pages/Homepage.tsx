@@ -6,18 +6,6 @@ import KDANavbar from "../Components/KDANavbar";
 import KDAFooter from "../Components/KDAFooter";
 
 export class Homepage extends React.Component {
-  state = {
-    theme: "dark",
-    current: "1",
-    collapsed: false,
-  };
-
-  toggleCollapsed = () => {
-    this.setState({
-      collapsed: !this.state.collapsed,
-    });
-  };
-
   render() {
     return (
       <>

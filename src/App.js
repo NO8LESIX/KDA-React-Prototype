@@ -6,8 +6,11 @@ import "antd/dist/antd.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import AboutPage from "./Pages/AboutPage";
 import SNAPInfoPage from "./Pages/SNAPInfoPage";
-import ProducePage from "./Pages/ProducePage";
+import { RegulationsPage } from "./Pages/RegulationsPage";
+import FileReportPage from "./Pages/FileReportPage";
 import ReferencePage from "./Pages/ReferencePage";
+import ProducePage from "./Pages/ProductTypePage";
+
 
 export default function App() {
   return (
@@ -20,8 +23,8 @@ export default function App() {
             <Route exact path="/">
               <Home />
             </Route>
-            <Route path="/blank">
-              <Blank />
+            <Route path="/test">
+              <Testing />
             </Route>
             <Route path="/about">
               <About />
@@ -32,9 +35,27 @@ export default function App() {
             <Route path="/snapInfo">
               <SNAPInfo />
             </Route>
-            <Route path="/produce">
-              <Produce />
+            <Route exact path="/produce">
+              <Home />
             </Route>
+            <Route path="/baked">
+              <Home />
+            </Route>
+            <Route path="/canned">
+              <Home />
+            </Route>
+            <Route path="/processed">
+              <Home />
+            </Route>
+            <Route exact path="/produce/:id">
+              <Home />
+            </Route>
+            <Route exact path="/produce/:id/:id">
+              <ProductPage />
+            </Route>
+            <Route path="/report">
+                <FileReport />
+                </Route>
             <Route path="/references">
               <Reference />
             </Route>
@@ -48,8 +69,13 @@ function Home() {
   return <Homepage />;
 }
 
-function Blank() {
-  return <p>Blank</p>;
+function ProductPage() {
+  return <ProducePage />;
+}
+
+//Use this route to test a page
+function Testing() {
+  return <RegulationsPage />;
 }
 
 function About() {
@@ -60,10 +86,9 @@ function SNAPInfo() {
   return <SNAPInfoPage />;
 }
 
-function Produce() {
-  return <ProducePage />;
+function FileReport() {
+  return <FileReportPage />;
 }
-
 function Reference() {
   return <ReferencePage />
 }
