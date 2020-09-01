@@ -1,30 +1,24 @@
-import React, { useState } from "react";
+import React from "react";
 import "antd/dist/antd.css";
 import {
   Form,
   Input,
   Tooltip,
   Cascader,
-  Select,
-  Row,
-  Col,
   Checkbox,
   Button,
-  AutoComplete,
 } from "antd";
 import { QuestionCircleOutlined } from "@ant-design/icons";
 
-const { Option } = Select;
-const AutoCompleteOption = AutoComplete.Option;
-
+//this will be replaced by the JSON tree path to make editing existing items easier.
 const residences = [
   {
-    value: "zhejiang",
-    label: "Zhejiang",
+    value: "itemType",
+    label: "Type",
     children: [
       {
-        value: "hangzhou",
-        label: "Hangzhou",
+        value: "ProductLabel",
+        label: "ProductLabel",
         children: [
           {
             value: "xihu",
@@ -74,43 +68,20 @@ const tailFormItemLayout = {
     },
   },
 };
-const onFinish = (values: any) => {
-  console.log("Received values of form: ", values);
-};
 
-const prefixSelector = (
-  <Form.Item name="prefix" noStyle>
-    <Select style={{ width: 70 }}>
-      <Option value="86">+86</Option>
-      <Option value="87">+87</Option>
-    </Select>
-  </Form.Item>
-);
 
-const [autoCompleteResult, setAutoCompleteResult] = useState([]);
-
-const onWebsiteChange = (value: string) => {
-  if (!value) {
-    setAutoCompleteResult([]);
-  } else {
-    setAutoCompleteResult([]);
-  }
-};
-
-const websiteOptions = autoCompleteResult.map((website) => ({
-  label: website,
-  value: website,
-}));
-const [form] = Form.useForm();
 
 export default class CNIRegulationForm extends React.Component {
+  onFinish = (values: any) => {
+    console.log("Received values of form: ", values);
+  };
+
   render() {
     return (
       <Form
         {...formItemLayout}
-        form={form}
         name="register"
-        onFinish={onFinish}
+        onFinish={this.onFinish}
         initialValues={{
           residence: ["zhejiang", "hangzhou", "xihu"],
           prefix: "86",
@@ -195,6 +166,27 @@ export default class CNIRegulationForm extends React.Component {
         </Form.Item>
 
         <Form.Item
+          name="ProductLabel"
+          label={
+            <span>
+              Product Name&nbsp;
+              <Tooltip title="What is the name of the product being created?">
+                <QuestionCircleOutlined />
+              </Tooltip>
+            </span>
+          }
+          rules={[
+            {
+              required: true,
+              message: "You must name the product!",
+              whitespace: true,
+            },
+          ]}
+        >
+          <Input />
+        </Form.Item>
+
+        <Form.Item
           name="residence"
           label="Habitual Residence"
           rules={[
@@ -206,55 +198,6 @@ export default class CNIRegulationForm extends React.Component {
           ]}
         >
           <Cascader options={residences} />
-        </Form.Item>
-
-        <Form.Item
-          name="phone"
-          label="Phone Number"
-          rules={[
-            { required: true, message: "Please input your phone number!" },
-          ]}
-        >
-          <Input addonBefore={prefixSelector} style={{ width: "100%" }} />
-        </Form.Item>
-
-        <Form.Item
-          name="website"
-          label="Website"
-          rules={[{ required: true, message: "Please input website!" }]}
-        >
-          <AutoComplete
-            options={websiteOptions}
-            onChange={onWebsiteChange}
-            placeholder="website"
-          >
-            <Input />
-          </AutoComplete>
-        </Form.Item>
-
-        <Form.Item
-          label="Captcha"
-          extra="We must make sure that your are a human."
-        >
-          <Row gutter={8}>
-            <Col span={12}>
-              <Form.Item
-                name="captcha"
-                noStyle
-                rules={[
-                  {
-                    required: true,
-                    message: "Please input the captcha you got!",
-                  },
-                ]}
-              >
-                <Input />
-              </Form.Item>
-            </Col>
-            <Col span={12}>
-              <Button>Get captcha</Button>
-            </Col>
-          </Row>
         </Form.Item>
 
         <Form.Item
