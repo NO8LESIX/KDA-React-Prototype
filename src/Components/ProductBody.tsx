@@ -1,19 +1,15 @@
-import React from 'react';
-import { Button } from 'antd';
+import React from "react";
 import "../CSS/Homepage.css";
 import data from "../data/FoodType.json";
-import { Grid } from "@material-ui/core";
-import { Descriptions } from "antd";
 import { ProductInfo, ProductTypes } from "../data/types";
-import KDANavbar from "./KDANavbar";
-import KDAFooter from "./KDAFooter";
 import { TestProductList } from "../data/TestData"
-import {array, bool} from "prop-types";
+import {bool} from "prop-types";
 
 interface RegulationsPageProps {
 }
 interface RegulationsPageState {
-    productInformation: ProductInfo;
+  productInformation: ProductInfo;
+  parent?: ProductInfo;
 }
 
 
@@ -65,6 +61,16 @@ export class ProductBody extends React.Component<
                 category: ProductTypes.Baked,
                 description: "string",
                 snap: true,
+                requirements: [""],
+            },
+            parent: {
+                name: "",
+                category: ProductTypes.Baked,
+                description: "",
+                snap: true,
+                requirements: [""],
+                relatedItems:  [""],
+                url: window.location.pathname,
             },
         };
     }
@@ -96,17 +102,18 @@ export class ProductBody extends React.Component<
         for (let testProductListKey in TestProductList) {
             if(testProductListKey === name)
             {
-                console.log("Parent:" + testProductListKey);
+                //console.log("Parent:" + testProductListKey);
                 this.comment.home.name = TestProductList[testProductListKey].name;
                 this.comment.home.category = TestProductList[testProductListKey].category;
                 this.comment.home.description = TestProductList[testProductListKey].description;
+                this.comment.home.requirements = TestProductList[testProductListKey].requirements;
+                
                 //this.comment.parent = TestProductList[testProductListKey];
             }
         }
-
         //this.comment.parent =
-        //console.log(this.comment.home);
-        return this.comment.home.description;
+        // console.log("this.state.parent");
+        return this.comment.home.requirements;
     }
 
     //Retrieves categories for each child name

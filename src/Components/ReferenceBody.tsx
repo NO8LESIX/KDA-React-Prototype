@@ -1,5 +1,5 @@
 import React from "react";
-import { Grid, Typography, Card, CardContent} from "@material-ui/core";
+import { Typography} from "@material-ui/core";
 import { references } from "../data/References" 
 
 import Accordion from '@material-ui/core/Accordion';
