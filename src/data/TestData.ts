@@ -1,6 +1,5 @@
 import { ProductInfo, ProductList, ProductTypes} from "./types";
 
-
 export const TestCarrots: ProductInfo = {
         name: "carrots", 
         category: ProductTypes.Produce, 
