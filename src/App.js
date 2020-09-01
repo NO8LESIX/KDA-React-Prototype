@@ -6,9 +6,11 @@ import "antd/dist/antd.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import AboutPage from "./Pages/AboutPage";
 import SNAPInfoPage from "./Pages/SNAPInfoPage";
-import ProducePage from "./Pages/ProducePage";
+import { RegulationsPage } from "./Pages/RegulationsPage";
 import FileReportPage from "./Pages/FileReportPage";
 import ReferencePage from "./Pages/ReferencePage";
+import ProducePage from "./Pages/ProductTypePage";
+import UpdatePage from "./Pages/UpdatePage";
 
 export default function App() {
     return (
@@ -17,50 +19,67 @@ export default function App() {
                 <div>
                     {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
-                    <Switch>
-                        <Route exact path="/">
-                            <Home />
-                        </Route>
-                        <Route path="/blank">
-                            <Blank />
-                        </Route>
-                        <Route path="/about">
-                            <About />
-                        </Route>
-                        <Route path="/reactdefault">
-                            <ReactDefault />
-                        </Route>
-                        <Route path="/snapInfo">
-                            <SNAPInfo />
-                        </Route>
-                        <Route path="/produce">
-                            <Produce />
-                        </Route>
-                        <Route path="/report">
-                            <FileReport />
-                        </Route>
-                        <Route path="/references">
-                            <Reference />
-                        </Route>
-                        <Route path="/report">
-                            <FileReport />
-                        </Route>
-                        <Route path="/references">
-                            <Reference />
-                        </Route>
-                    </Switch>
-                </div>
-            </Router>
-        </>
-    );
+          <Switch>
+            <Route exact path="/">
+              <Home />
+            </Route>
+            <Route path="/test">
+              <Testing />
+            </Route>
+            <Route path="/about">
+              <About />
+            </Route>
+            <Route path="/reactdefault">
+              <ReactDefault />
+            </Route>
+            <Route path="/snapInfo">
+              <SNAPInfo />
+            </Route>
+            <Route exact path="/produce">
+              <Home />
+            </Route>
+            <Route path="/baked">
+              <Home />
+            </Route>
+            <Route path="/canned">
+              <Home />
+            </Route>
+            <Route path="/processed">
+              <Home />
+            </Route>
+            <Route exact path="/produce/:id">
+              <Home />
+            </Route>
+            <Route exact path="/produce/:id/:id">
+              <ProductPage />
+            </Route>
+            <Route path="/report">
+                <FileReport />
+                </Route>
+            <Route path="/references">
+              <Reference />
+            </Route>
+            <Route path="/update">
+              <Update />
+            </Route>
+          </Switch>
+        </div>
+      </Router>
+    </>
+  );
 }
 
 function Home() {
   return <Homepage />;
 }
 
-function Blank() {
-  return <p>Blank</p>;
+function ProductPage() {
+  return <ProducePage />;
+}
+
+//Use this route to test a page
+function Testing() {
+  return <RegulationsPage />;
 }
 
 function About() {
@@ -71,23 +90,22 @@ function SNAPInfo() {
   return <SNAPInfoPage />;
 }
 
-function Produce() {
-  return <ProducePage />;
-}
-
 function FileReport() {
     return <FileReportPage />;
 }
 function Reference() {
     return <ReferencePage />;
 }
-    function ReactDefault() {
-        return (
-            <div className="App">
-                <header className="App-header">
-                    <img src={logo} className="App-logo" alt="logo" />
-                    <p>
-                        Edit <code>src/App.js</code> and save to reload.
+function Update() {
+  return <UpdatePage />;
+}
+function ReactDefault() {
+  return (
+    <div className="App">
+      <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+        <p>
+          Edit <code>src/App.js</code> and save to reload.
         </p>
                     <a
                         className="App-link"
