@@ -1,0 +1,9 @@
+@media only screen and (min-device-width: 1000px) {
+    .reportSize {
+        max-width: 1000px;
+        margin-left: 25%;
+        margin-right: 25%;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+}

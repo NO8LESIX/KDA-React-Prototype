@@ -1,19 +1,8 @@
 @media only screen and (min-device-width: 1000px) {
 
-
-
-.footerSize {
+.size {
     max-width: 1000px;
     margin-left: 25%;
     margin-right: 25%;
 }
-}
-
-.kdaLogo {
-    width: 100%;
-    max-width: 415px;
-}
-
-.signUp {
-    margin: 12px;
 }

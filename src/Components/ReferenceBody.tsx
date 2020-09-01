@@ -2,6 +2,58 @@ import React from "react";
 import { Grid, Typography, Button, TextField, Link, makeStyles, Card, CardContent} from "@material-ui/core";
 
 export default class ReferenceBody extends React.Component {
+<<<<<<< Updated upstream
+=======
+    render () {
+        return (
+            <div className="referenceSize">
+                {
+                Object.values(references).map(reference => {
+                    return (
+                        <Accordion key={reference.questionsOn}>
+                            <AccordionSummary
+                             expandIcon={<ExpandMoreIcon />}
+                             aria-controls="panel1a-content"
+                             id="panel1a-header"
+                            >
+                                <Typography>{reference.questionsOn}</Typography>
+                            </AccordionSummary>
+                            <TableContainer component={AccordionDetails}>
+                                <Table>
+                                    <TableHead>
+                                        <TableRow>
+                                            <TableCell>Contact</TableCell>
+                                            <TableCell align="right">Website</TableCell>
+                                            <TableCell align="right">Email</TableCell>
+                                            <TableCell align="right">Phone</TableCell>
+                                        </TableRow>
+                                    </TableHead>
+                                    <TableBody>
+                                        {
+                                            reference.contacts.map(contact => (
+                                                <TableRow key={contact.name}>
+                                                    <TableCell component="th" scope="row">
+                                                    {contact.name}
+                                                    </TableCell>
+                                                    <TableCell align="right">
+                                                        {
+                                                        contact.website ? 
+                                                        (<Typography>
+                                                        <a href={contact.website}>{contact.website}</a>
+                                                        </Typography>) : ""
+                                                    }
+                                                    </TableCell>
+                                                    <TableCell align="right">{contact.email ? contact.email : ""}</TableCell>
+                                                    <TableCell align="right">{contact.phone ? contact.phone : ""}</TableCell>
+                                              </TableRow>
+                                            ))
+                                        }
+                                    </TableBody>
+                                </Table>
+
+                            </TableContainer>
+                        </Accordion>
+>>>>>>> Stashed changes
 
     render() {
         return (

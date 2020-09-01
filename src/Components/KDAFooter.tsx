@@ -21,6 +21,7 @@ export default class KDAFooter extends React.Component {
 
     render() {
         return (
+            <div className="footerSize">
             <Grid container direction="row" alignItems="center" justify="center" spacing={2}>
                 <Grid item xs={12} sm={4}>
                     <img className="kdaLogo" src="https://upload.wikimedia.org/wikipedia/en/b/bd/KSDofAg_logo.png" alt="Kansas Department of Agriculture" />
@@ -39,6 +40,7 @@ export default class KDAFooter extends React.Component {
                     <SignUpButton variant="contained" color="primary"> Sign Up </SignUpButton>
                 </Grid>
             </Grid>
+            </div>
         )
     }
 }
