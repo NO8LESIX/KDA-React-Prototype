@@ -3,7 +3,7 @@ import KDANavbar from "../Components/KDANavbar";
 import KDAFooter from "../Components/KDAFooter";
 import { Grid } from "@material-ui/core";
 import { Descriptions } from "antd";
-import { ProductInfo, ProductTypes } from "../data/types";
+import { ProductInfo, ProductTypes } from "../Data/types";
 
 interface RegulationsPageProps {
 }
@@ -22,7 +22,8 @@ export class RegulationsPage extends React.Component<
         name: "string",
         category: ProductTypes.Baked,
         description: "string",
-        snap: true,
+        snap: true,        
+        requirements: [""],
       },
     };
   }
