@@ -9,6 +9,7 @@ import SNAPInfoPage from "./Pages/SNAPInfoPage";
 import { RegulationsPage } from "./Pages/RegulationsPage";
 import FileReportPage from "./Pages/FileReportPage";
 import ReferencePage from "./Pages/ReferencePage";
+import { COERegulationsPage } from "./Pages/COERegulationsPage";
 
 export default function App() {
   return (
@@ -54,6 +55,9 @@ export default function App() {
             <Route path="/references">
               <Reference />
             </Route>
+            <Route path="/coeregulations">
+              <COERegulations />
+            </Route>
           </Switch>
         </div>
       </Router>
@@ -82,6 +86,9 @@ function FileReport() {
 }
 function Reference() {
   return <ReferencePage />
+}
+function COERegulations() {
+  return <COERegulationsPage />
 }
 
 function ReactDefault() {
