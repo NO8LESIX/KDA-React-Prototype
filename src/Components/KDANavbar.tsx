@@ -18,7 +18,6 @@ import UpdateIcon from "@material-ui/icons/Update";
 import ReportIcon from "@material-ui/icons/Report";
 import StarsIcon from '@material-ui/icons/Stars';
 import { Input } from "antd";
-import "../CSS/KDANavbar.css";
 const { Search } = Input;
 
 type Anchor = "top" | "left" | "bottom" | "right";
@@ -116,7 +115,6 @@ export default class KDANavbar extends React.Component<KDANavbarProps, KDANavbar
 
   render() {
     return (
-      <div className="size">
         <AppBar position="static" color="default">
           <Toolbar>
             <Grid
@@ -165,7 +163,6 @@ export default class KDANavbar extends React.Component<KDANavbarProps, KDANavbar
             </Grid>
           </Toolbar>
         </AppBar>
-      </div>
     );
   }
 }

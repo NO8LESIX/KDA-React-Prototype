@@ -15,53 +15,55 @@ import ProducePage from "./Pages/ProductTypePage";
 export default function App() {
   return (
     <>
-      <Router>
-        <div>
-          {/* A <Switch> looks through its children <Route>s and
-            renders the first one that matches the current URL. */}
-          <Switch>
-            <Route exact path="/">
-              <Home />
-            </Route>
-            <Route path="/test">
-              <Testing />
-            </Route>
-            <Route path="/about">
-              <About />
-            </Route>
-            <Route path="/reactdefault">
-              <ReactDefault />
-            </Route>
-            <Route path="/snapInfo">
-              <SNAPInfo />
-            </Route>
-            <Route exact path="/produce">
-              <Home />
-            </Route>
-            <Route path="/baked">
-              <Home />
-            </Route>
-            <Route path="/canned">
-              <Home />
-            </Route>
-            <Route path="/processed">
-              <Home />
-            </Route>
-            <Route exact path="/produce/:id">
-              <Home />
-            </Route>
-            <Route exact path="/produce/:id/:id">
-              <ProductPage />
-            </Route>
-            <Route path="/report">
-                <FileReport />
-                </Route>
-            <Route path="/references">
-              <Reference />
-            </Route>
-          </Switch>
-        </div>
-      </Router>
+      <div className="AppSize">
+        <Router>
+          <div>
+            {/* A <Switch> looks through its children <Route>s and
+              renders the first one that matches the current URL. */}
+            <Switch>
+              <Route exact path="/">
+                <Home />
+              </Route>
+              <Route path="/test">
+                <Testing />
+              </Route>
+              <Route path="/about">
+                <About />
+              </Route>
+              <Route path="/reactdefault">
+                <ReactDefault />
+              </Route>
+              <Route path="/snapInfo">
+                <SNAPInfo />
+              </Route>
+              <Route exact path="/produce">
+                <Home />
+              </Route>
+              <Route path="/baked">
+                <Home />
+              </Route>
+              <Route path="/canned">
+                <Home />
+              </Route>
+              <Route path="/processed">
+                <Home />
+              </Route>
+              <Route exact path="/produce/:id">
+                <Home />
+              </Route>
+              <Route exact path="/produce/:id/:id">
+                <ProductPage />
+              </Route>
+              <Route path="/report">
+                  <FileReport />
+                  </Route>
+              <Route path="/references">
+                <Reference />
+              </Route>
+            </Switch>
+          </div>
+        </Router>
+      </div>
     </>
   );
 }
@@ -95,6 +97,7 @@ function Reference() {
 
 function ReactDefault() {
   return (
+    <div className="AppSize">
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
@@ -110,6 +113,7 @@ function ReactDefault() {
           Learn React
         </a>
       </header>
+    </div>
     </div>
   );
 }
