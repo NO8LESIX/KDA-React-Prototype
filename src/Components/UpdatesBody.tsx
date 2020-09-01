@@ -1,5 +1,6 @@
 import React from 'react';
 import { styled } from "@material-ui/core/styles";
+import clsx from 'clsx';
 import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
 import CardContent from '@material-ui/core/CardContent';
@@ -9,9 +10,9 @@ import IconButton from "@material-ui/core/IconButton";
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import { TestUpdates } from "../Data/TestUpdates";
 import { Typography, Box } from '@material-ui/core';
-import "../CSS/UpdateBody.css";
+import "../CSS/UpdatesBody.css";
 
-interface UpdateState {
+interface UpdatesState {
     cardsExpanded: boolean[],
 }
 const ScrollableBox = styled(Box)({
@@ -19,7 +20,8 @@ const ScrollableBox = styled(Box)({
     flexWrap: 'wrap',
     justifyContent: 'space-around',
     overflow: 'scroll',
-    height: "60%",
+    height: "50%",
+    maxHeight: "600px",
     margin: "1em",
   });
 
@@ -28,7 +30,7 @@ const StyledCard = styled(Card)({
     margin: ".5em",
 });
 
-export default class UpdateBody extends React.Component<{}, UpdateState> {
+export default class UpdatesBody extends React.Component<{}, UpdatesState> {
     constructor(props: any){
         super(props);
         this.state = {
@@ -58,10 +60,14 @@ export default class UpdateBody extends React.Component<{}, UpdateState> {
                             </Typography>
                         </CardContent>
                         <CardActions disableSpacing>
-                            <IconButton className = "expandOpen"
+                            <IconButton 
                             aria-expanded={this.state.cardsExpanded[index]}
                             aria-label="show more"
-                            onClick={() => this.handleExpandClick(index)}>
+                            onClick={() => this.handleExpandClick(index)}
+                            className={clsx("expand", {
+                                ["expandOpen"]: this.state.cardsExpanded[index],
+                            })}
+                            >
                                 <ExpandMoreIcon />
                             </IconButton>
                         </CardActions>

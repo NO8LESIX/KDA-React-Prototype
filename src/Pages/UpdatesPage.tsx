@@ -1,17 +1,17 @@
 import React from "react";
 import "antd/dist/antd.css";
-import UpdateBody from "../Components/UpdateBody";
+import UpdatesBody from "../Components/UpdatesBody";
 import { Layout } from "antd";
 import KDANavbar from "../Components/KDANavbar";
 import KDAFooter from "../Components/KDAFooter";
 
-export default class UpdatePage extends React.Component {
+export default class UpdatesPage extends React.Component {
   render() {
     return (
       <>
         <Layout>
           <KDANavbar />
-          <UpdateBody />
+          <UpdatesBody />
           <KDAFooter />
         </Layout>
       </>

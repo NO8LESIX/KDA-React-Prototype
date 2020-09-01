@@ -6,10 +6,6 @@
     transform: 'rotate(180deg)'
 }
 
-.updateCard {
-    width: 100%;
-}
-
 .updateTitle { 
     background-image: linear-gradient(#4f2684,#7137bd);
 }
