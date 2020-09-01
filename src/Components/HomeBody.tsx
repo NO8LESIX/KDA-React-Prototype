@@ -26,6 +26,8 @@ export class HomeBody extends React.Component {
         currentID: 0,
         currentURLID: "",
         parent: "",
+        titles: [""],
+        subcategories: [0],
         home: {
             produce: 'Fresh Produce',
             produceURL: 'produce',
@@ -49,24 +51,66 @@ export class HomeBody extends React.Component {
                         <p className="header">{this.getParent(this.getID())}</p>
                     </div>
                     <div id="boxes">
-                        <Button className="buttons" type="primary" shape="round" >
-                            <a href={'' + this.renderURL(1)}>{this.retrieveCategories(this.comment.currentID,0)}</a>
-                        </Button>
-                        <Button className="buttons" type="primary" shape="round">
-                            <a href={'' + this.renderURL(2)}> {this.retrieveCategories(this.comment.currentID,1)}</a>
-                        </Button>
-                        <Button className="buttons" type="primary" shape="round">
-                            <a href={'' + this.renderURL(3)}>{this.retrieveCategories(this.comment.currentID,2)}</a>
-                        </Button>
-                        <Button className="buttons lastButton" type="primary" shape="round">
-                            <a href={'' + this.renderURL(4)}>{this.retrieveCategories(this.comment.currentID,3)}</a>
-                        </Button>
+                            {this.renderButtons()}
                     </div>
                     <div className="divide divideBottom">
                     </div>
                 </>
             );
 
+    }
+
+    renderButtons() {
+        this.categories.forEach((data) => {
+            if(data.id === this.comment.currentID)
+            {
+                //console.log("NEW ID:" + this.comment.currentID);
+                //console.log("Type: "+ Data.title[val]);
+                //return "HI" + Data.title[val];
+                this.comment.titles = data.title;
+
+            }
+        });
+
+        return this.comment.titles.map( (data,index) => {
+            let replace = '/' + data.replace(" ","%").toLowerCase();
+            if(this.comment.home.url !== '/')
+            {
+                replace = this.comment.home.url + replace;
+            }
+            console.log("URL NAV: "+replace);
+            return (
+                <Button className="buttons" type="primary" shape="round" >
+                    <a href={'' + replace}>{data}</a>
+                </Button>
+            )
+        });
+
+    }
+
+    //Renders correct URLs for children navigation
+    renderURL(num: number) {
+        //let { id } = useParams();
+        // let { slug }: any = useParams();
+        // return <div>Now showing post {slug}</div>;
+        Data.types.forEach( (data) => {
+            if (data.idNum === num) {
+                this.comment.currentURLID = data.id;
+            }
+            console.log("CurrentURLID: "+ this.comment.currentURLID);
+        });
+
+        console.log(this.comment.home.url);
+        if(this.comment.home.url !== '/')
+        {
+
+            return this.comment.home.url + '/'+num;
+            //return '/canned';
+        }
+        else
+        {
+            return this.comment.currentURLID;
+        }
     }
 
     //Retrieves Header
@@ -100,30 +144,7 @@ export class HomeBody extends React.Component {
       //return null;
     }
 
-    //Renders correct URLs for children navigation
-    renderURL(num: number) {
-        //let { id } = useParams();
-       // let { slug }: any = useParams();
-       // return <div>Now showing post {slug}</div>;
-        Data.types.forEach( (data) => {
-            if (data.idNum === num) {
-                this.comment.currentURLID = data.id;
-            }
-            console.log("CurrentURLID: "+ this.comment.currentURLID);
-        });
 
-        console.log(this.comment.home.url);
-        if(this.comment.home.url !== '/')
-        {
-
-            return this.comment.home.url + '/'+num;
-            //return '/canned';
-        }
-        else
-        {
-            return this.comment.currentURLID;
-        }
-    }
 
     //Retrieves current Product Parent ID for display
     getID() {
