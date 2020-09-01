@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 @media only screen and (min-device-width: 1000px) {
     .referenceSize {
         max-width: 1000px;
@@ -7,9 +6,4 @@
         margin-top: 10px;
         margin-bottom: 10px;
     }
-=======
-
-.referenceBody {
-    margin: 2rem;
->>>>>>> master
 }

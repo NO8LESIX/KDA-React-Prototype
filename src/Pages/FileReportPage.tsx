@@ -4,20 +4,14 @@ import "antd/dist/antd.css";
 import { Layout } from "antd";
 import KDANavbar from "../Components/KDANavbar";
 import KDAFooter from "../Components/KDAFooter";
-<<<<<<< HEAD
 import "../CSS/ReportPage.css";
-=======
->>>>>>> master
 
 export default class FileReportPage extends React.Component {
     render() {
         return (
                 <Layout>
                     <KDANavbar />
-<<<<<<< HEAD
                     <div className="reportSize">
-=======
->>>>>>> master
                     <Grid container direction="row" alignItems="center" justify="center" spacing={2}>
                         <Grid item xs={12}>
                             <Typography align="center" variant="h4"> Report a food-related illness or complaint </Typography>
@@ -53,10 +47,7 @@ export default class FileReportPage extends React.Component {
                             <Typography align="left" variant="h6">--To learn more about foodborne illness, please visit FoodSafety.gov or the Center for Disease Control and Prevention (CDC) </Typography>
                         </Grid>
                     </Grid>
-<<<<<<< HEAD
                     </div>
-=======
->>>>>>> master
                     <KDAFooter />
                 </Layout>
         );

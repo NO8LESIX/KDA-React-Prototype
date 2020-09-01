@@ -1,14 +1,4 @@
 @media only screen and (min-device-width: 1000px) {
-
-<<<<<<< Updated upstream
-.buttons {
-    width: 75vw;
-    margin-top: 5%;
-    background-color: #512888;
-    padding-top: 15px;
-    padding-bottom: 35px;
-}
-=======
     #boxes {
         display:grid;
         border-top: 1px solid grey;
@@ -18,8 +8,7 @@
         margin-left: 25%;
         margin-right: 25%;
     }
->>>>>>> Stashed changes
-
+    
     .buttons {
         width: 75vw;
         margin-top: 5%;
