@@ -14,6 +14,9 @@ import {
 import MenuIcon from "@material-ui/icons/Menu";
 import InboxIcon from "@material-ui/icons/MoveToInbox";
 import MailIcon from "@material-ui/icons/Mail";
+import UpdateIcon from "@material-ui/icons/Update";
+import ReportIcon from "@material-ui/icons/Report";
+import StarsIcon from '@material-ui/icons/Stars';
 import { Input } from "antd";
 const { Search } = Input;
 
@@ -29,10 +32,7 @@ interface KDANavbarState {
 
 interface KDANavbarProps {}
 
-export default class KDANavbar extends React.Component<
-  KDANavbarProps,
-  KDANavbarState
-> {
+export default class KDANavbar extends React.Component<KDANavbarProps, KDANavbarState> {
   constructor(props: any) {
     super(props);
     this.state = {
@@ -59,6 +59,36 @@ export default class KDANavbar extends React.Component<
     this.setState({ ...this.state, drawerOpen: open });
   };
 
+  menuDrawerIconSelection = (index: number) => {
+    switch (index) {
+      case 0:
+        return <InboxIcon />;
+      case 1:
+        return <UpdateIcon />;
+      case 2:
+        return <ReportIcon />;
+      case 3:
+        return <StarsIcon />;
+      default:
+        return <MailIcon />;
+    }
+  };
+
+  menuRouteBuilder = (route: string) => {
+    switch (route) {
+      case "Home":
+        return <a href="/">{route}</a>;
+      case "Updates":
+        return <a href="/updates">{route}</a>;
+      case "Report Violations":
+        return <a href="/report">{route}</a>;
+      case "Favorites":
+        return <a href="/">{route}</a>;
+      default:
+        break;
+    }
+  };
+
   menuDrawer = (anchor: Anchor) => (
     <div
       className={clsx(this.menuDrawer, {
@@ -69,13 +99,13 @@ export default class KDANavbar extends React.Component<
       onKeyDown={this.toggleDrawer(anchor, false)}
     >
       <List>
-        {["Home", "Updates", "Report Violations", "Settings"].map(
+        {["Home", "Updates", "Report Violations", "Favorites"].map(
           (text, index) => (
             <ListItem button key={text}>
-              <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-              </ListItemIcon>
-              <ListItemText primary={text} />
+                <ListItemIcon>
+                  {this.menuDrawerIconSelection(index)}
+                </ListItemIcon>
+                <ListItemText primary={this.menuRouteBuilder(text)} />
             </ListItem>
           )
         )}

@@ -10,7 +10,7 @@ import { RegulationsPage } from "./Pages/RegulationsPage";
 import FileReportPage from "./Pages/FileReportPage";
 import ReferencePage from "./Pages/ReferencePage";
 import ProducePage from "./Pages/ProductTypePage";
-
+import UpdatesPage from "./Pages/UpdatesPage";
 
 export default function App() {
   return (
@@ -59,6 +59,9 @@ export default function App() {
             <Route path="/references">
               <Reference />
             </Route>
+            <Route path="/updates">
+              <Updates />
+            </Route>
           </Switch>
         </div>
       </Router>
@@ -92,7 +95,9 @@ function FileReport() {
 function Reference() {
   return <ReferencePage />
 }
-
+function Updates() {
+  return <UpdatesPage />
+}
 function ReactDefault() {
   return (
     <div className="App">
