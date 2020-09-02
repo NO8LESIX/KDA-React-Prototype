@@ -56,7 +56,7 @@ export default function App() {
             </Route>
             <Route path="/report">
                 <FileReport />
-                </Route>
+            </Route>
             <Route path="/references">
               <Reference />
             </Route>

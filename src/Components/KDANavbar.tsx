@@ -11,7 +11,7 @@ import {
   ListItemText,
   SwipeableDrawer,
   Toolbar,
-  Link
+  Paper,
 } from "@material-ui/core";
 import MenuIcon from "@material-ui/icons/Menu";
 import InboxIcon from "@material-ui/icons/MoveToInbox";
@@ -19,8 +19,9 @@ import MailIcon from "@material-ui/icons/Mail";
 import UpdateIcon from "@material-ui/icons/Update";
 import ReportIcon from "@material-ui/icons/Report";
 import StarsIcon from '@material-ui/icons/Stars';
-import { Input } from "antd";
-const { Search } = Input;
+import InputBase from '@material-ui/core/InputBase';
+import SearchIcon from '@material-ui/icons/Search';
+
 
 type Anchor = "top" | "left" | "bottom" | "right";
 
@@ -51,7 +52,8 @@ export default class KDANavbar extends React.Component<KDANavbarProps, KDANavbar
       right: false,
       drawerOpen: false,
     };
-  }
+    this.onSubmitSearch = this.onSubmitSearch.bind(this);
+  };
 
   toggleDrawer = (anchor: Anchor, open: boolean) => (
     event: React.KeyboardEvent | React.MouseEvent
@@ -68,7 +70,10 @@ export default class KDANavbar extends React.Component<KDANavbarProps, KDANavbar
     this.setState({ ...this.state, drawerOpen: open });
     };
 
-    OnClick = (index: number) =>{
+    onClick = (index: number) =>{
+
+      console.log("is this even being called");
+      console.log("index: ", index);
         switch (index) {
             case 0:
                 return <a href="/search"></a>;
@@ -76,6 +81,13 @@ export default class KDANavbar extends React.Component<KDANavbarProps, KDANavbar
                 break;
         }
     };
+
+    onSubmitSearch = (event: any) => {
+      event.preventDefault();
+      console.log("submitted");
+      window.location.href ='/search';
+      return <a href="/search"></a>;
+    }
 
   menuDrawerIconSelection = (text: string) => {
     switch (text) {
@@ -129,7 +141,7 @@ export default class KDANavbar extends React.Component<KDANavbarProps, KDANavbar
               justify="space-around"
               spacing={1}
             >
-              <Grid item xs={12} md lg xl>
+              <Grid item xs={12} sm ={1} md lg xl>
                 <React.Fragment key="left">
                   <IconButton
                     onClick={this.toggleDrawer("left", true)}
@@ -152,13 +164,13 @@ export default class KDANavbar extends React.Component<KDANavbarProps, KDANavbar
               <Grid
                 item
                 xs={12}
+                sm = {11}
                 md
                 lg
                 xl
-                justify="center"
-                alignContent="center"
+                className="centerIcon"
               >
-                <a href="/">
+                <a href="/" className="logo">
                   <img
                     src="https://www.communications.k-state.edu/communications-solutions-and-services/logos/KSRE_textonly_REVERSE_CORRECT.png"
                     placeholder="Logo Here"
@@ -167,20 +179,20 @@ export default class KDANavbar extends React.Component<KDANavbarProps, KDANavbar
                   />
                 </a>
               </Grid>
-              <Grid item xs={12} sm={12} md lg xl>
-                <Search
-                  placeholder="Search"
-                  onSearch={(value) => console.log(value)}
-                  enterButton
+            <Grid item xs={12} sm={12} md lg xl className="search">
+              <Paper component="form" className="searchPaper" onSubmit={this.onSubmitSearch}>
+                <InputBase
+                placeholder="Search Products"
+                inputProps={{ 'aria-label': 'search products' }}
+                color="primary"
+                className="searchInput"
+                onSubmit={this.onSubmitSearch}
                 />
+                <IconButton type="submit" aria-label="search" onClick={this.onSubmitSearch}>
+                  <SearchIcon />
+                </IconButton>    
+              </Paper>
             </Grid>
-            <Grid item xs={12} md lg xl>
-              <Search
-                    placeholder="Search"
-                    onSearch={(value) => console.log(value)}
-                    enterButton={this.OnClick(0)}
-              />
-              </Grid>
             </Grid>
           </Toolbar>
           <br />
