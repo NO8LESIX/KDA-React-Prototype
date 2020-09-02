@@ -12,9 +12,6 @@ export class COERegulationsPage extends React.Component<
   COERegulationsPageProps,
   COERegulationsPageState
 > {
-  onFinish = (values: any) => {
-    console.log("Received values of form: ", values);
-  };
   render() {
     return (
       <>
@@ -26,7 +23,7 @@ export class COERegulationsPage extends React.Component<
           justify="space-around"
           spacing={1}
         >
-          <Grid item xs={12} md lg xl>
+          <Grid item xs={10} md lg xl>
             <CNIRegulationForm />
           </Grid>
         </Grid>
