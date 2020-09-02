@@ -127,7 +127,7 @@ export default class KDANavbar extends React.Component<KDANavbarProps, KDANavbar
             spacing={1}
 
           >
-            <Grid item xs={12} md={4} lg={4} xl>
+            <Grid item xs={12} md lg xl>
               <React.Fragment key="left">
                 <IconButton
                   onClick={this.toggleDrawer("left", true)}
@@ -147,7 +147,7 @@ export default class KDANavbar extends React.Component<KDANavbarProps, KDANavbar
                 </SwipeableDrawer>
               </React.Fragment>
             </Grid>
-            <Grid item xs={12} md={4} lg={4} xl justify="center" alignContent="center" >
+            <Grid item xs={12} md lg xl justify="center" alignContent="center" >
               <a href="/">
                 <img
                   src="https://www.communications.k-state.edu/communications-solutions-and-services/logos/KSRE_textonly_REVERSE_CORRECT.png"
@@ -157,7 +157,7 @@ export default class KDANavbar extends React.Component<KDANavbarProps, KDANavbar
                 />
               </a>
             </Grid>
-            <Grid item xs={12} md={4} lg={4} xl>
+            <Grid item xs={12} md lg xl>
               <Search
                 placeholder="Search"
                 onSearch={(value) => console.log(value)}
