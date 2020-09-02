@@ -120,7 +120,6 @@ export default class KDANavbar extends React.Component<KDANavbarProps, KDANavbar
         <Toolbar>
           <Grid
             container
-            wrap='nowrap'
             direction="row"
             alignItems="center"
             justify="space-around"
