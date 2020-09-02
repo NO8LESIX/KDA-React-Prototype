@@ -1,4 +1,3 @@
-
 #boxes {
     display:grid;
     border-top: 1px solid grey;
@@ -8,11 +7,11 @@
 
 .buttons {
     width: 75vw;
+    align-content: space-evenly;
     margin-top: 5%;
-    background-color: #512888;
+    background-color: #7137bd;
     padding-top: 15px;
     padding-bottom: 35px;
-    max-width: 75%;
 }
 
 .lastButton {
@@ -21,15 +20,16 @@
 
 .divide {
     font-size: large;
+    align-content: space-evenly;
     text-align: center;
     margin-bottom: 0;
     font-weight: 600;
-    background-color: #F8F8F8;
-    opacity: 80%;
+    background-color: solid gray;
+    opacity: 80%
 }
 
 .divideBottom {
-    height: 46px;
+    height: 10vh;
 }
 
 p {
