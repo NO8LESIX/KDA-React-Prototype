@@ -4,6 +4,7 @@ import KDAFooter from "../Components/KDAFooter";
 import { Grid } from "@material-ui/core";
 import { Descriptions } from "antd";
 import { ProductInfo, ProductTypes } from "../Data/types";
+import { TestCarrots } from "../Data/TestData";
 
 interface RegulationsPageProps {
   productProp: ProductInfo;
@@ -11,7 +12,6 @@ interface RegulationsPageProps {
 interface RegulationsPageState {
   productInformation: ProductInfo;
 }
-
 export class RegulationsPage extends React.Component<
   RegulationsPageProps,
   RegulationsPageState
@@ -20,7 +20,7 @@ export class RegulationsPage extends React.Component<
     super(props);
     this.state = {
       productInformation: {
-        name: "string",
+        name: TestCarrots.name,
         category: ProductTypes.Baked,
         description: "string",
         snap: true,        

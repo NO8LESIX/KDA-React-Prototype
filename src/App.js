@@ -9,65 +9,66 @@ import SNAPInfoPage from "./Pages/SNAPInfoPage";
 import { RegulationsPage } from "./Pages/RegulationsPage";
 import FileReportPage from "./Pages/FileReportPage";
 import ReferencePage from "./Pages/ReferencePage";
+import { COERegulationsPage } from "./Pages/COERegulationsPage";
 import ProducePage from "./Pages/ProductTypePage";
-import UpdatesPage from "./Pages/UpdatesPage";
+
 
 export default function App() {
   return (
     <>
-      <div className="AppSize">
-        <Router>
-          <div>
-            {/* A <Switch> looks through its children <Route>s and
-              renders the first one that matches the current URL. */}
-            <Switch>
-              <Route exact path="/">
-                <Home />
-              </Route>
-              <Route path="/test">
-                <Testing />
-              </Route>
-              <Route path="/about">
-                <About />
-              </Route>
-              <Route path="/reactdefault">
-                <ReactDefault />
-              </Route>
-              <Route path="/snapInfo">
-                <SNAPInfo />
-              </Route>
-              <Route exact path="/produce">
-                <Home />
-              </Route>
-              <Route path="/baked">
-                <Home />
-              </Route>
-              <Route path="/canned">
-                <Home />
-              </Route>
-              <Route path="/processed">
-                <Home />
-              </Route>
-              <Route exact path="/produce/:id">
-                <Home />
-              </Route>
-              <Route exact path="/produce/:id/:id">
-                <ProductPage />
-              </Route>
-              <Route path="/report">
-                  <FileReport />
-                  </Route>
-              <Route path="/references">
-                <Reference />
-              </Route>
-            </Switch>
-          </div>
-        </Router>
-      </div>
+      <Router>
+        <div>
+          {/* A <Switch> looks through its children <Route>s and
+            renders the first one that matches the current URL. */}
+          <Switch>
+            <Route exact path="/">
+              <Home />
+            </Route>
+            <Route path="/test">
+              <Testing />
+            </Route>
+            <Route path="/about">
+              <About />
+            </Route>
+            <Route path="/reactdefault">
+              <ReactDefault />
+            </Route>
+            <Route path="/snapInfo">
+              <SNAPInfo />
+            </Route>
+            <Route exact path="/produce">
+              <Home />
+            </Route>
+            <Route path="/baked">
+              <Home />
+            </Route>
+            <Route path="/canned">
+              <Home />
+            </Route>
+            <Route path="/processed">
+              <Home />
+            </Route>
+            <Route exact path="/produce/:id">
+              <Home />
+            </Route>
+            <Route exact path="/produce/:id/:id">
+              <ProductPage />
+            </Route>
+            <Route path="/report">
+                <FileReport />
+                </Route>
+            <Route path="/references">
+              <Reference />
+            </Route>
+            <Route path="/coeregulations">
+              <COERegulations />
+            </Route>
+          </Switch>
+        </div>
+      </Router>
     </>
   );
 }
-
 function Home() {
   return <Homepage />;
 }
@@ -90,33 +91,32 @@ function SNAPInfo() {
 }
 
 function FileReport() {
-    return <FileReportPage />;
+  return <FileReportPage />;
 }
 function Reference() {
-    return <ReferencePage />;
+  return <ReferencePage />
 }
-function Updates() {
-  return <UpdatesPage />
+function COERegulations() {
+  return <COERegulationsPage />
 }
+
 function ReactDefault() {
   return (
-    <div className="AppSize">
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
-                    <a
-                        className="App-link"
-                        href="https://reactjs.org"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        Learn React
+        <a
+          className="App-link"
+          href="https://reactjs.org"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Learn React
         </a>
       </header>
-    </div>
     </div>
   );
 }
