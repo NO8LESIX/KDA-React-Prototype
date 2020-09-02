@@ -1,4 +1,4 @@
-import { ReferenceList } from "../Data/types";
+import { ReferenceList } from "./types";
 
 export const references: ReferenceList = {
     "Food Safety": {

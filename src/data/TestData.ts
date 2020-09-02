@@ -1,4 +1,4 @@
-import { ProductInfo, ProductList, ProductTypes} from "../Data/types";
+import { ProductInfo, ProductList, ProductTypes} from "./types";
 
 export const TestCarrots: ProductInfo = {
         name: "carrots", 
