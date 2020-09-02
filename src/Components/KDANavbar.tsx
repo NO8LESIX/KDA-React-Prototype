@@ -31,6 +31,13 @@ interface KDANavbarState {
   drawerOpen: boolean;
 }
 
+enum KDADrawerRoutes {
+  "Home" = "/",
+  "Updates" = "/updates",
+  "Report Violations"= "/report",
+  "Favorites" = "/"
+}
+
 interface KDANavbarProps {}
 
 export default class KDANavbar extends React.Component<KDANavbarProps, KDANavbarState> {
@@ -60,33 +67,18 @@ export default class KDANavbar extends React.Component<KDANavbarProps, KDANavbar
     this.setState({ ...this.state, drawerOpen: open });
   };
 
-  menuDrawerIconSelection = (index: number) => {
-    switch (index) {
-      case 0:
+  menuDrawerIconSelection = (text: string) => {
+    switch (text) {
+      case "Home":
         return <InboxIcon />;
-      case 1:
+      case "Updates":
         return <UpdateIcon />;
-      case 2:
+      case "Report Violations":
         return <ReportIcon />;
-      case 3:
+      case "Favorites":
         return <StarsIcon />;
       default:
         return <MailIcon />;
-    }
-  };
-
-  menuRouteBuilder = (route: string) => {
-    switch (route) {
-      case "Home":
-        return <a href="/">{route}</a>;
-      case "Updates":
-        return <a href="/updates">{route}</a>;
-      case "Report Violations":
-        return <a href="/report">{route}</a>;
-      case "Favorites":
-        return <a href="/">{route}</a>;
-      default:
-        break;
     }
   };
 
@@ -100,13 +92,13 @@ export default class KDANavbar extends React.Component<KDANavbarProps, KDANavbar
       onKeyDown={this.toggleDrawer(anchor, false)}
     >
       <List>
-        {["Home", "Updates", "Report Violations", "Favorites"].map(
-          (text, index) => (
-            <ListItem button key={text}>
+        {Object.entries(KDADrawerRoutes).map(
+          ([key, value]) => (
+            <ListItem button component="a" key={key} href={value}>
                 <ListItemIcon>
-                  {this.menuDrawerIconSelection(index)}
+                  {this.menuDrawerIconSelection(key)}
                 </ListItemIcon>
-                <ListItemText primary={this.menuRouteBuilder(text)} />
+                <ListItemText primary={key} />
             </ListItem>
           )
         )}
