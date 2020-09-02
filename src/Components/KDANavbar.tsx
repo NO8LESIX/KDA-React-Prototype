@@ -10,6 +10,7 @@ import {
   ListItemText,
   SwipeableDrawer,
   Toolbar,
+  Link
 } from "@material-ui/core";
 import MenuIcon from "@material-ui/icons/Menu";
 import InboxIcon from "@material-ui/icons/MoveToInbox";
@@ -57,7 +58,16 @@ export default class KDANavbar extends React.Component<KDANavbarProps, KDANavbar
     }
 
     this.setState({ ...this.state, drawerOpen: open });
-  };
+    };
+
+    OnClick = (index: number) =>{
+        switch (index) {
+            case 0:
+                return <a href="/search"></a>;
+            default:
+                break;
+        }
+    };
 
   menuDrawerIconSelection = (index: number) => {
     switch (index) {
@@ -155,9 +165,9 @@ export default class KDANavbar extends React.Component<KDANavbarProps, KDANavbar
             </Grid>
             <Grid item xs={12} md lg xl>
               <Search
-                placeholder="Search"
-                onSearch={(value) => console.log(value)}
-                enterButton
+                    placeholder="Search"
+                    onSearch={(value) => console.log(value)}
+                    enterButton={this.OnClick(0)}
               />
             </Grid>
           </Grid>
