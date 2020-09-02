@@ -10,14 +10,14 @@ import { RegulationsPage } from "./Pages/RegulationsPage";
 import FileReportPage from "./Pages/FileReportPage";
 import ReferencePage from "./Pages/ReferencePage";
 import ProducePage from "./Pages/ProductTypePage";
-
+import UpdatesPage from "./Pages/UpdatesPage";
 
 export default function App() {
-  return (
-    <>
-      <Router>
-        <div>
-          {/* A <Switch> looks through its children <Route>s and
+    return (
+        <>
+            <Router>
+                <div>
+                    {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
           <Switch>
             <Route exact path="/">
@@ -59,12 +59,16 @@ export default function App() {
             <Route path="/references">
               <Reference />
             </Route>
+            <Route path="/updates">
+              <Updates />
+            </Route>
           </Switch>
         </div>
       </Router>
     </>
   );
 }
+
 function Home() {
   return <Homepage />;
 }
@@ -87,12 +91,14 @@ function SNAPInfo() {
 }
 
 function FileReport() {
-  return <FileReportPage />;
+    return <FileReportPage />;
 }
 function Reference() {
-  return <ReferencePage />
+    return <ReferencePage />;
 }
-
+function Updates() {
+  return <UpdatesPage />
+}
 function ReactDefault() {
   return (
     <div className="App">
@@ -101,15 +107,15 @@ function ReactDefault() {
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
+                    <a
+                        className="App-link"
+                        href="https://reactjs.org"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        Learn React
         </a>
-      </header>
-    </div>
-  );
-}
+                </header>
+            </div>
+        );
+    }

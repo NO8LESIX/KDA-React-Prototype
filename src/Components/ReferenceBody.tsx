@@ -1,6 +1,6 @@
 import React from "react";
 import { Typography} from "@material-ui/core";
-import { references } from "../Data/References" 
+import { references } from "../Data/References"
 import Accordion from '@material-ui/core/Accordion';
 import AccordionSummary from '@material-ui/core/AccordionSummary';
 import AccordionDetails from '@material-ui/core/AccordionDetails';
@@ -63,65 +63,9 @@ export default class ReferenceBody extends React.Component {
 
                             </TableContainer>
                         </Accordion>
-
                     );
                 })}
             </div>
         );
     }
-/*
-    render() {
-        return (
-            <Grid container direction="row" alignItems="stretch" justify="center" spacing={6}>
-                <Grid container item direction="row" alignItems="stretch" justify="center" spacing={2}> 
-                        {Object.values(references).map(reference => {
-                            return (
-                                <Grid item xs>
-                                    <Card>
-                                        <CardContent>
-                                            <Typography variant="h6">Questions On?</Typography>
-                                            <Typography variant="body2">{reference.questionsOn}</Typography>
-                                            <Typography variant="h6">Who to Contact</Typography>
-                                            <Typography variant="body2">{reference.whoToContact}</Typography>
-                                            {reference.websites && 
-                                            (
-                                                <>
-                                                <Typography variant="h6">Website</Typography>
-                                                {reference.websites.map(website => {
-                                                    return (
-                                                        <Typography variant="body2">
-                                                        <a href={website}>{website}</a>
-                                                    </Typography>
-                                                    )
-                                                })}
-                                                </>
-                                            )}
-
-                                            {reference.email &&
-                                            (
-                                                <>
-                                                <Typography variant="h6">Email</Typography>
-                                                <Typography variant="body2">{reference.email}</Typography>
-                                                </>
-                                            )
-                                            }
-                                            {reference.phone &&
-                                            (
-                                                <>
-                                                <Typography variant="h6">Phone</Typography>
-                                                <Typography variant="body2">{reference.phone}</Typography>
-                                                </>
-                                            )
-                                            }
-                                        </CardContent>                            
-                                    </Card>
-                                </Grid>
-                            )
-                        }
-                    )}
-                </Grid>
-            </Grid>
-        );
-    }*/
-
 }

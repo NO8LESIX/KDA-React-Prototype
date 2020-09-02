@@ -1,0 +1,13 @@
+{
+  "types" : [
+    { "id": 0, "parent": "Browse Regulations by Food Type:", "title": ["Produce", "Baked", "Processed", "Canned"], "subcategories": [1,2,3,4]},
+    { "id": 1, "parent": "Produce", "title": ["Vegetables", "Fresh Cuts", "Fruits", "Sprouts"], "subcategories": [5,2,3,4]},
+    { "id": 2, "parent": "Baked", "title": ["Pies", "Cookies", "Bread", "Pecan Pie"], "subcategories": [1,2,3,4]},
+    { "id": 3, "parent": "Processed", "title": ["Dough", "Vacuum-Packaged", "Non-Specialized", "Temperature-Controlled"], "subcategories": [1,2,3,4]},
+    { "id": 4, "parent": "Canned", "title": ["Honey", "Nuts and Butters", "Candies", "Lard"], "subcategories": [1,2,3,4]},
+    { "id": 5, "parent": "Vegetables", "title": ["Carrots", "Peas", "Broccoli", "Corn"], "subcategories": [6,7,8,9]},
+    { "id": 6, "parent": "Fresh Cuts", "title": ["Cut Berries", "Cut Herbs", "Cut Carrots", "Cut Greens"], "subcategories": [6,7,8,9]},
+    { "id": 7, "parent": "Fruits", "title": ["Tomatoes", "Apple", "Orange", "Apricot"], "subcategories": [6,7,8,9]},
+    { "id": 8, "parent": "Sprouts", "title": ["Alfalfa Sprouts", "Bean Sprouts", "Mung Sprouts", "Lentil Sprouts"], "subcategories": [6,7,8,9]}
+  ]
+}
