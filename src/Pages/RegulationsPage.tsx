@@ -25,7 +25,10 @@ export class RegulationsPage extends React.Component<
     };
     console.log(CarlosItem);
   }
-
+buildRelatedItemsString = (items:string[] | undefined) =>{
+  // let relatedItems =  this.state.productInformation.relatedItems?.map((item:string) => {item + ", "});
+  // return relatedItems;
+}
   render() {
     return (
       <>
@@ -50,7 +53,7 @@ export class RegulationsPage extends React.Component<
           </Grid>
           <Grid item xs={12} md lg xl>
             <Descriptions
-              title="Responsive Descriptions"
+              title="Quick Information"
               bordered
               column={{ xxl: 4, xl: 3, lg: 3, md: 3, sm: 2, xs: 1 }}
             >
@@ -58,7 +61,7 @@ export class RegulationsPage extends React.Component<
                 {this.state.productInformation.name}
               </Descriptions.Item>
               <Descriptions.Item label="SNAP">
-                {this.state.productInformation.snap? "Eligible" : "Ineligible"}
+                {this.state.productInformation.snap ? "Eligible" : "Ineligible"}
               </Descriptions.Item>
               <Descriptions.Item label="Regulatory Requirements">
                 {this.state.productInformation.regulatoryRequirements}
@@ -66,32 +69,28 @@ export class RegulationsPage extends React.Component<
               <Descriptions.Item label="Examples">
                 {this.state.productInformation.examples}
               </Descriptions.Item>
-              <Descriptions.Item label="SNAP">
-                {this.state.productInformation.snap? "Eligible" : "Ineligible"}
+              <Descriptions.Item label="Related Items">
+                {this.state.productInformation.relatedItems?.toString()}
               </Descriptions.Item>
-              <Descriptions.Item label="Config Info">
-                Data disk type: MongoDB
+              <Descriptions.Item label="Licenses Required">
+                License Type: MongoDB
                 <br />
-                Database version: 3.4
+                Issuer: Kansas Department of Agriculture
                 <br />
-                Package: dds.mongo.mid
+                License Type: MongoDB
                 <br />
-                Storage space: 10 GB
+                Issuer: Kansas Department of Agriculture
                 <br />
-                Replication factor: 3
+                License Type: MongoDB
                 <br />
-                Region: East China 1
+                Issuer: Kansas Department of Agriculture
               </Descriptions.Item>
             </Descriptions>
           </Grid>
-          <Grid item xs={12} md lg xl>
-            <p>test</p>
-          </Grid>
-          <Grid item xs={12} md lg xl>
-            <p>test</p>
-          </Grid>
+          <Grid item xs={12} md lg xl></Grid>
+          <Grid item xs={12} md lg xl></Grid>
         </Grid>
-
+        <br />
         <KDAFooter />
       </>
     );
