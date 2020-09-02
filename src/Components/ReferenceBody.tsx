@@ -1,6 +1,6 @@
 import React from "react";
 import { Typography} from "@material-ui/core";
-import { references } from "../Data/References" 
+import { references } from "../Data/References"
 import Accordion from '@material-ui/core/Accordion';
 import AccordionSummary from '@material-ui/core/AccordionSummary';
 import AccordionDetails from '@material-ui/core/AccordionDetails';

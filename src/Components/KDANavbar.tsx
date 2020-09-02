@@ -1,5 +1,6 @@
 import React from "react";
 import clsx from "clsx";
+import "../CSS/KDANavbar.css";
 import {
   IconButton,
   AppBar,
@@ -115,54 +116,57 @@ export default class KDANavbar extends React.Component<KDANavbarProps, KDANavbar
 
   render() {
     return (
-        <AppBar position="static" color="default">
-          <Toolbar>
-            <Grid
-              container
-              direction="row"
-              alignItems="center"
-              justify="space-around"
-              spacing={1}
-            >
-              <Grid item xs md lg xl>
-                <React.Fragment key="left">
-                  <IconButton
-                    onClick={this.toggleDrawer("left", true)}
-                    edge="start"
-                    color="inherit"
-                    aria-label="open drawer"
-                  >
-                    <MenuIcon></MenuIcon>
-                  </IconButton>
-                  <SwipeableDrawer
-                    anchor="left"
-                    open={this.state.drawerOpen}
-                    onClose={this.toggleDrawer("left", false)}
-                    onOpen={this.toggleDrawer("left", true)}
-                  >
-                    {this.menuDrawer("left")}
-                  </SwipeableDrawer>
-                </React.Fragment>
-              </Grid>
-              <Grid item xs={12} md lg xl justify="center" alignContent="center">
-                <a href="/">
-                  <img
-                    src="https://www.k-state.edu/ksu-resources/branding/2/images/innovation-inspiration-215.png"
-                    placeholder="Logo Here"
-                    alt="Kansas Department of Agriculture Food Regulations"
-                  />
-                </a>
-              </Grid>
-              <Grid item xs={12} md lg xl>
-                <Search
-                  placeholder="Search"
-                  onSearch={(value) => console.log(value)}
-                  enterButton
-                />
-              </Grid>
+      <AppBar position="static" color="default" className="NavbarGradient">
+        <Toolbar>
+          <Grid
+            container
+            wrap='nowrap'
+            direction="row"
+            alignItems="center"
+            justify="space-around"
+            spacing={1}
+
+          >
+            <Grid item xs={12} md={4} lg={4} xl>
+              <React.Fragment key="left">
+                <IconButton
+                  onClick={this.toggleDrawer("left", true)}
+                  edge="start"
+                  color="inherit"
+                  aria-label="open drawer"
+                >
+                  <MenuIcon></MenuIcon>
+                </IconButton>
+                <SwipeableDrawer
+                  anchor="left"
+                  open={this.state.drawerOpen}
+                  onClose={this.toggleDrawer("left", false)}
+                  onOpen={this.toggleDrawer("left", true)}
+                >
+                  {this.menuDrawer("left")}
+                </SwipeableDrawer>
+              </React.Fragment>
             </Grid>
-          </Toolbar>
-        </AppBar>
+            <Grid item xs={12} md={4} lg={4} xl justify="center" alignContent="center" >
+              <a href="/">
+                <img
+                  src="https://www.communications.k-state.edu/communications-solutions-and-services/logos/KSRE_textonly_REVERSE_CORRECT.png"
+                  placeholder="Logo Here"
+                  alt="Kansas Department of Agriculture Food Regulations"
+                  className = "navbarLogo"
+                />
+              </a>
+            </Grid>
+            <Grid item xs={12} md={4} lg={4} xl>
+              <Search
+                placeholder="Search"
+                onSearch={(value) => console.log(value)}
+                enterButton
+              />
+            </Grid>
+          </Grid>
+        </Toolbar>
+      </AppBar>
     );
   }
 }
