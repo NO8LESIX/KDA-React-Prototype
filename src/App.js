@@ -11,6 +11,7 @@ import FileReportPage from "./Pages/FileReportPage";
 import ReferencePage from "./Pages/ReferencePage";
 import ProducePage from "./Pages/ProductTypePage";
 import UpdatesPage from "./Pages/UpdatesPage";
+import SearchResultsPage from "./Pages/SearchResultsPage";
 
 export default function App() {
     return (
@@ -59,6 +60,9 @@ export default function App() {
             <Route path="/references">
               <Reference />
             </Route>
+            <Route path="/search">
+                <SearchResults />
+            </Route>
             <Route path="/updates">
               <Updates />
             </Route>
@@ -98,6 +102,9 @@ function Reference() {
 }
 function Updates() {
   return <UpdatesPage />
+}
+function SearchResults() {
+    return <SearchResultsPage />
 }
 function ReactDefault() {
   return (
