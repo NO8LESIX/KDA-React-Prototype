@@ -1,83 +1,61 @@
 import React from "react";
-import { Grid, Typography, Link, Box } from "@material-ui/core";
+import { Typography } from "@material-ui/core";
 import "antd/dist/antd.css";
 import { Layout } from "antd";
 import KDANavbar from "../Components/KDANavbar";
 import KDAFooter from "../Components/KDAFooter";
-import { ProductInfo, ProductTypes } from "../Data/types";
+import { ProductList } from "../Data/types";
+import ListItem from '@material-ui/core/ListItem';
+import ListItemText from '@material-ui/core/ListItemText';
+import { FixedSizeList, ListChildComponentProps } from 'react-window';
+import { TestProductList } from "../Data/TestData";
+import "../CSS/SearchResultsPage.css";
 
-interface RegulationsPageProps {
-    productProp: ProductInfo;
+interface SearchPageProps {
+    productList: ProductList;
 }
-interface RegulationsPageState {
-    productInformation: ProductInfo;
+interface SearchPageState {
+    productList: ProductList;
 }
 
 export default class SearchResultsPage extends React.Component<
-    RegulationsPageProps,
-    RegulationsPageState
+    SearchPageProps,
+    SearchPageState
     > {
     constructor(props: any) {
         super(props);
         this.state = {
-            productInformation: {
-                name: "string",
-                category: ProductTypes.Baked,
-                description: "string",
-                snap: true,
-                requirements: [""],
-            },
+         productList: TestProductList
         };
+        this.renderRow = this.renderRow.bind(this)
+
     }
+
+    renderRow(props: ListChildComponentProps) {
+        const { index, style } = props;
+
+        
+        const product = Object.values(this.state.productList)[index];
+      
+        return (
+            <ListItem button style={style} key={product.name}>
+                <ListItemText primary={product.name} secondary={product.description.substring(0, 50)}/>
+            </ListItem>
+        );
+      }
+
+
+
     render() {
         return (
                 <Layout>
                     <KDANavbar />
-                <Grid container direction="row" alignItems="center" justify="center" spacing={2}>
-                        <Grid item xs={6} color="black">
-                            <Box display="flex" flexDirection="row">
-                                <Typography>Testing </Typography>
-                            </Box>
-                        </Grid>
-                        <Grid item xs={6}>
-
-                        </Grid>
-                        <Grid item xs={6}>
-
-                        </Grid>
-                        <Grid item xs={12}>
-                            <Typography align="left" variant="h4">
-                                Searches related to
-                            </Typography>
-                            <Grid container direction="row">
-                                <Grid item xs={1} >
-                                    related 1
-                                </Grid>
-                                <Grid item xs={1} >
-                                    related 2
-                                </Grid>
-                            </Grid>
-                            <Grid container direction="row">
-                                <Grid item xs={1} >
-                                    related 3
-                                </Grid>
-                                <Grid item xs={1} >
-                                    related 4
-                                </Grid>
-                            </Grid>
-                            <Grid container direction="row">
-                                <Grid item xs={1} >
-                                    related 5
-                                    </Grid>
-                                <Grid item xs={1} >
-                                    related 6
-                                    </Grid>
-                            </Grid>
-                        </Grid>
-                </Grid>
-                        <br></br>
-                        <br></br>
-                        <br></br>
+                    <div className="results">
+                        <Typography component="h1"> Results </Typography>
+                        <FixedSizeList height={500} width={"100%"} itemSize={46} itemCount={Object.values(this.state.productList).length}>
+                            {this.renderRow}
+                        </FixedSizeList>
+                    </div>
                     <KDAFooter />
                 </Layout>
         );

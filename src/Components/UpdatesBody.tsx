@@ -65,7 +65,7 @@ export default class UpdatesBody extends React.Component<{}, UpdatesState> {
                             aria-label="show more"
                             onClick={() => this.handleExpandClick(index)}
                             className={clsx("expand", {
-                                ["expandOpen"]: this.state.cardsExpanded[index],
+                                "expandOpen": this.state.cardsExpanded[index],
                             })}
                             >
                                 <ExpandMoreIcon />

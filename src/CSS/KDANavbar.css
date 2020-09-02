@@ -8,3 +8,30 @@
     min-width: 25%;
     min-height: 25%;
 }
+
+.logo {
+    margin: auto;
+}
+
+.search  {
+    padding: '2px 4px';
+    display: 'flex';
+    align-items: center;
+    width: 30px;
+}
+
+.searchPaper {
+    padding-left: .5em;
+
+}
+.centerIcon {
+    align-content: center;
+    text-align: center;
+}
+.searchInput {
+    width: 85%;
+}
+.searchIcon {
+    margin-right: 0;
+
+}
