@@ -157,7 +157,7 @@ export default class KDANavbar extends React.Component<KDANavbarProps, KDANavbar
                   />
                 </a>
               </Grid>
-              <Grid item xs={12} md lg xl>
+              <Grid item xs={12} sm={12} md lg xl>
                 <Search
                   placeholder="Search"
                   onSearch={(value) => console.log(value)}
