@@ -1,0 +1,10 @@
+.NavbarGradient{
+    background-image: linear-gradient(#4f2684,#7137bd);
+}
+
+.navbarLogo{
+    max-width: 33%;
+    max-height: 33%;
+    min-width: 25%;
+    min-height: 25%;
+}

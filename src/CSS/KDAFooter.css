@@ -6,3 +6,12 @@
 .signUp {
     margin: 12px;
 }
+
+.navbarGradient{
+    border-top: 1px solid gray;
+    background-color: white;
+}
+
+.linkText{
+    text-decoration:none;
+}

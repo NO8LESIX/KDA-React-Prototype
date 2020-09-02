@@ -1,5 +1,6 @@
 import React from "react";
 import clsx from "clsx";
+import "../CSS/KDANavbar.css";
 import {
   IconButton,
   AppBar,
@@ -29,6 +30,13 @@ interface KDANavbarState {
   right: boolean;
   bottom: boolean;
   drawerOpen: boolean;
+}
+
+enum KDADrawerRoutes {
+  "Home" = "/",
+  "Updates" = "/updates",
+  "Report Violations"= "/report",
+  "Favorites" = "/"
 }
 
 interface KDANavbarProps {}
@@ -69,33 +77,18 @@ export default class KDANavbar extends React.Component<KDANavbarProps, KDANavbar
         }
     };
 
-  menuDrawerIconSelection = (index: number) => {
-    switch (index) {
-      case 0:
+  menuDrawerIconSelection = (text: string) => {
+    switch (text) {
+      case "Home":
         return <InboxIcon />;
-      case 1:
+      case "Updates":
         return <UpdateIcon />;
-      case 2:
+      case "Report Violations":
         return <ReportIcon />;
-      case 3:
+      case "Favorites":
         return <StarsIcon />;
       default:
         return <MailIcon />;
-    }
-  };
-
-  menuRouteBuilder = (route: string) => {
-    switch (route) {
-      case "Home":
-        return <a href="/">{route}</a>;
-      case "Updates":
-        return <a href="/updates">{route}</a>;
-      case "Report Violations":
-        return <a href="/report">{route}</a>;
-      case "Favorites":
-        return <a href="/">{route}</a>;
-      default:
-        break;
     }
   };
 
@@ -109,13 +102,13 @@ export default class KDANavbar extends React.Component<KDANavbarProps, KDANavbar
       onKeyDown={this.toggleDrawer(anchor, false)}
     >
       <List>
-        {["Home", "Updates", "Report Violations", "Favorites"].map(
-          (text, index) => (
-            <ListItem button key={text}>
+        {Object.entries(KDADrawerRoutes).map(
+          ([key, value]) => (
+            <ListItem button component="a" key={key} href={value}>
                 <ListItemIcon>
-                  {this.menuDrawerIconSelection(index)}
+                  {this.menuDrawerIconSelection(key)}
                 </ListItemIcon>
-                <ListItemText primary={this.menuRouteBuilder(text)} />
+                <ListItemText primary={key} />
             </ListItem>
           )
         )}
@@ -125,43 +118,61 @@ export default class KDANavbar extends React.Component<KDANavbarProps, KDANavbar
 
   render() {
     return (
-      <AppBar position="static" color="default">
-        <Toolbar>
-          <Grid
-            container
-            direction="row"
-            alignItems="center"
-            justify="space-around"
-            spacing={1}
-          >
-            <Grid item xs md lg xl>
-              <React.Fragment key="left">
-                <IconButton
-                  onClick={this.toggleDrawer("left", true)}
-                  edge="start"
-                  color="inherit"
-                  aria-label="open drawer"
-                >
-                  <MenuIcon></MenuIcon>
-                </IconButton>
-                <SwipeableDrawer
-                  anchor="left"
-                  open={this.state.drawerOpen}
-                  onClose={this.toggleDrawer("left", false)}
-                  onOpen={this.toggleDrawer("left", true)}
-                >
-                  {this.menuDrawer("left")}
-                </SwipeableDrawer>
-              </React.Fragment>
-            </Grid>
-            <Grid item xs={12} md lg xl justify="center" alignContent="center">
-              <a href="/">
-                <img
-                  src="https://www.k-state.edu/ksu-resources/branding/2/images/innovation-inspiration-215.png"
-                  placeholder="Logo Here"
-                  alt="Kansas Department of Agriculture Food Regulations"
+      <>
+        <AppBar position="static" color="default" className="NavbarGradient">
+          <br />
+          <Toolbar>
+            <Grid
+              container
+              direction="row"
+              alignItems="center"
+              justify="space-around"
+              spacing={1}
+            >
+              <Grid item xs={12} md lg xl>
+                <React.Fragment key="left">
+                  <IconButton
+                    onClick={this.toggleDrawer("left", true)}
+                    edge="start"
+                    color="inherit"
+                    aria-label="open drawer"
+                  >
+                    <MenuIcon></MenuIcon>
+                  </IconButton>
+                  <SwipeableDrawer
+                    anchor="left"
+                    open={this.state.drawerOpen}
+                    onClose={this.toggleDrawer("left", false)}
+                    onOpen={this.toggleDrawer("left", true)}
+                  >
+                    {this.menuDrawer("left")}
+                  </SwipeableDrawer>
+                </React.Fragment>
+              </Grid>
+              <Grid
+                item
+                xs={12}
+                md
+                lg
+                xl
+                justify="center"
+                alignContent="center"
+              >
+                <a href="/">
+                  <img
+                    src="https://www.communications.k-state.edu/communications-solutions-and-services/logos/KSRE_textonly_REVERSE_CORRECT.png"
+                    placeholder="Logo Here"
+                    alt="Kansas Department of Agriculture Food Regulations"
+                    className="navbarLogo"
+                  />
+                </a>
+              </Grid>
+              <Grid item xs={12} sm={12} md lg xl>
+                <Search
+                  placeholder="Search"
+                  onSearch={(value) => console.log(value)}
+                  enterButton
                 />
-              </a>
             </Grid>
             <Grid item xs={12} md lg xl>
               <Search
@@ -169,10 +180,12 @@ export default class KDANavbar extends React.Component<KDANavbarProps, KDANavbar
                     onSearch={(value) => console.log(value)}
                     enterButton={this.OnClick(0)}
               />
+              </Grid>
             </Grid>
-          </Grid>
-        </Toolbar>
-      </AppBar>
+          </Toolbar>
+          <br />
+        </AppBar>
+      </>
     );
   }
 }
