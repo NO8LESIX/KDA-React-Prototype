@@ -6,12 +6,12 @@ import "antd/dist/antd.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import AboutPage from "./Pages/AboutPage";
 import SNAPInfoPage from "./Pages/SNAPInfoPage";
-import { RegulationsPage } from "./Pages/RegulationsPage";
 import FileReportPage from "./Pages/FileReportPage";
 import ReferencePage from "./Pages/ReferencePage";
 import { COERegulationsPage } from "./Pages/COERegulationsPage";
 import ProducePage from "./Pages/ProductTypePage";
-
+import UpdatesPage from "./Pages/UpdatesPage";
+import SearchResultsPage from "./Pages/SearchResultsPage";
 
 export default function App() {
   return (
@@ -55,14 +55,20 @@ export default function App() {
             <Route exact path="/produce/:id/:id">
               <ProductPage />
             </Route>
-            <Route path="/report">
+            <Route exact path="/report">
                 <FileReport />
-                </Route>
+            </Route>
             <Route path="/references">
               <Reference />
             </Route>
             <Route path="/coeregulations">
               <COERegulations />
+              </Route>
+            <Route path="/search">
+                <SearchResults />
+            </Route>
+            <Route path="/updates">
+              <Updates />
             </Route>
           </Switch>
         </div>
@@ -81,7 +87,7 @@ function ProductPage() {
 
 //Use this route to test a page
 function Testing() {
-  return <RegulationsPage />;
+  return <> </>;
 }
 
 function About() {
@@ -101,7 +107,9 @@ function Reference() {
 function COERegulations() {
   return <COERegulationsPage />
 }
-
+function SearchResults() {
+    return <SearchResultsPage />
+}
 function ReactDefault() {
   return (
     <div className="App">

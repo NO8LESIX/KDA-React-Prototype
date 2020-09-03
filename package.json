@@ -8,15 +8,18 @@
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^10.4.9",
     "@testing-library/user-event": "^12.1.3",
-    "antd": "^4.6.2",
+    "@types/react-dom": "^16.9.8",
     "@types/react-router": "^5.1.8",
     "@types/react-router-dom": "^5.1.5",
+    "@types/react-window": "^1.8.2",
+    "antd": "^4.6.2",
     "clsx": "^1.1.1",
     "fontsource-roboto": "^3.0.3",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.3",
+    "react-window": "^1.8.5",
     "typescript": "^4.0.2"
   },
   "scripts": {
@@ -41,7 +44,7 @@
     ]
   },
   "devDependencies": {
-    "@typescript-eslint/parser": "^3.10.1",
-    "eslint-plugin-react-hooks": "^4.1.0"
+    "@typescript-eslint/parser": "^2.34.0",
+    "eslint-plugin-react-hooks": "^1.7.0"
   }
 }
