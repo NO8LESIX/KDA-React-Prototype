@@ -2,8 +2,11 @@ import React from "react";
 import "../CSS/Homepage.css";
 import Data from "../Data/FoodType.json";
 import { ProductInfo, ProductTypes } from "../Data/types";
-import { TestProductList } from "../Data/TestData"
+import {TestProductList, TestTomatoes} from "../Data/TestData"
 import {bool} from "prop-types";
+import RightData from "../Data/FoodCategories.json";
+import {TestUpdates} from "../Data/TestUpdates";
+import { Row, Col } from 'antd';
 
 interface RegulationsPageProps {
 }
@@ -89,6 +92,18 @@ export class ProductBody extends React.Component<
                 {/* Additional Information */}
                 <div className="divide">
                     <p className="header">{this.getParent(this.getIDName())}</p>
+                    <Row>
+                        <Col span={12}>Name: </Col>
+                        <Col span={12}>{this.comment.home.name}</Col>
+                        <Col span={12}>Category: </Col>
+                        <Col span={12}>{this.comment.home.category}</Col>
+                        <Col span={12}>Description: </Col>
+                        <Col span={12}>{this.comment.home.description}</Col>
+                        <Col span={12}>Regulatory Requirements: </Col>
+                        <Col span={12}>{this.comment.home.requirements}</Col>
+                    </Row>
+                </div>
+                <div className="divide divideBottom">
                 </div>
 
             </>
@@ -98,7 +113,8 @@ export class ProductBody extends React.Component<
     //Retrieves Header
     getParent(name: string)
     {
-        console.log(name);
+        let com;
+        console.log("TO UPPER: " + name);
         for (let testProductListKey in TestProductList) {
             if(testProductListKey === name)
             {
@@ -107,13 +123,21 @@ export class ProductBody extends React.Component<
                 this.comment.home.category = TestProductList[testProductListKey].category;
                 this.comment.home.description = TestProductList[testProductListKey].description;
                 this.comment.home.requirements = TestProductList[testProductListKey].requirements;
-                
+                //this.comment.home.snap = true;
+                com = TestProductList[testProductListKey];
                 //this.comment.parent = TestProductList[testProductListKey];
             }
         }
+
+        return "Product Page";
+
+
+
         //this.comment.parent =
         // console.log("this.state.parent");
-        return this.comment.home.requirements;
+        //return this.comment.home.requirements;
+       // console.log(TestTomatoes);
+        //console.log("KEY: "+ com);
     }
 
     //Retrieves categories for each child name
@@ -123,8 +147,8 @@ export class ProductBody extends React.Component<
             if(data.id === num)
             {
                 console.log("NEW ID:" + this.comment.currentID);
-                //console.log("Type: "+ data.title[val]);
-                //return "HI" + data.title[val];
+                //console.log("Type: "+ Data.title[val]);
+                //return "HI" + Data.title[val];
                 this.comment.text = data.title[val];
             }
         });
@@ -137,12 +161,24 @@ export class ProductBody extends React.Component<
 
     //Retrieves current Product Parent ID for display
     getIDName() {
-        Data.types.forEach( (data) => {
-            if (data.id === this.comment.home.url) {
-                this.comment.currentIDName = data.idName;
+        let lastUrl = this.comment.home.url.split('/').pop();
+
+        //console.log("LastBitofURL: " + lastUrl);
+
+        RightData.types.forEach( (data) => {
+            if(data.parent.replace(' ','_').toLowerCase() === lastUrl)
+            {
+                this.comment.parent = data.parent;
+                this.comment.currentID = data.id;
             }
         });
-        return this.comment.currentIDName;
+
+        console.log(lastUrl);
+        if(lastUrl)
+        {
+            return this.comment.parent = lastUrl.toUpperCase();
+        }
+        return this.comment.parent;
     }
 
 }

@@ -1,7 +1,7 @@
-import { ProductInfo, ProductList, ProductTypes} from "./types";
+import { ProductInfo, ProductList, ProductTypes} from "../Data/types";
 
 export const TestCarrots: ProductInfo = {
-        name: "carrots", 
+        name: "Carrots",
         category: ProductTypes.Produce, 
         description: "long orange things that are vegetables",
         snap: true, 
@@ -14,9 +14,20 @@ export const TestTomatoes: ProductInfo = {
     category: ProductTypes.Produce, 
     description: "red sphere of water juice",
     snap: true,
+    regulatoryRequirements: "none",
+    examples: ["none"],
     requirements: ["clean", "washed"],
     relatedItems: ["carrots"]
 }
+
+export const CarlosItem: ProductInfo = {
+    name: "Mangoes", 
+    category: ProductTypes.Produce, 
+    description: "The best fruit",
+    snap: true, 
+    requirements: ["please no stems", "washed"], 
+    relatedItems:  ["Pinappples", "Guavas"] 
+} 
 
 export const TestJams: ProductInfo = {
     name: "jams",
