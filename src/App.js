@@ -110,6 +110,9 @@ function COERegulations() {
 function SearchResults() {
     return <SearchResultsPage />
 }
+function Updates() {
+    return <UpdatesPage />
+}
 function ReactDefault() {
   return (
     <div className="App">
