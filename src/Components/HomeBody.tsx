@@ -33,6 +33,9 @@ export class HomeBody extends React.Component {
         url: window.location.pathname
     };
 
+    //<div className="divide divideBottom">
+    //</div>
+
 
     //Renders display
     render() {
@@ -46,7 +49,7 @@ export class HomeBody extends React.Component {
                             {this.renderButtons()}
                     </div>
                     <div className="divide divideBottom">
-                    </div>
+                        </div>
                 </>
             );
 

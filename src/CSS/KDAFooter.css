@@ -8,6 +8,9 @@
 }
 
 .navbarGradient{
+    border-top: 1px solid gray;
+    background-color: white;
+    margin-bottom: auto;
 }
 
 .linkText{

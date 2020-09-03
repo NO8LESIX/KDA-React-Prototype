@@ -11,6 +11,7 @@ export default class FileReportPage extends React.Component {
         return (
                 <Layout>
                     <KDANavbar />
+                    <br/>
                     <Grid container direction="row" alignItems="center" justify="center" spacing={2}>
                         <Grid item xs={12}>
                             <Typography align="center" variant="h4"> <b> Report a food-related illness or complaint </b></Typography>
@@ -58,6 +59,7 @@ export default class FileReportPage extends React.Component {
                             </Typography>
                         </Grid>
                     </Grid>
+                    <br/>
                     <KDAFooter />
                 </Layout>
         );
