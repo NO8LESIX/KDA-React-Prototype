@@ -16,6 +16,7 @@ import ProducePage from "./Pages/ProductTypePage";
 export default function App() {
   return (
     <>
+    <div className="AppSize">
       <Router>
         <div>
           {/* A <Switch> looks through its children <Route>s and
@@ -66,6 +67,7 @@ export default function App() {
           </Switch>
         </div>
       </Router>
+      </div>
     </>
   );
 }
