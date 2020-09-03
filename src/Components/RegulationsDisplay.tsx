@@ -1,42 +1,33 @@
 import React from "react";
-import KDANavbar from "../Components/KDANavbar";
-import KDAFooter from "../Components/KDAFooter";
 import { Grid } from "@material-ui/core";
 import { Descriptions } from "antd";
 import { ProductInfo } from "../Data/types";
-import { CarlosItem } from "../Data/TestData";
 
-interface RegulationsPageProps {
+interface RegulationsDisplayProps {
   productProp: ProductInfo;
 }
-interface RegulationsPageState {
+interface RegulationsDisplayState {
   productInformation: ProductInfo;
 }
 
-export class RegulationsPage extends React.Component<
-  RegulationsPageProps,
-  RegulationsPageState
+export class RegulationsDisplay extends React.Component<
+  RegulationsDisplayProps,
+  RegulationsDisplayState
 > {
-
   constructor(props: any) {
     super(props);
     this.state = {
-      productInformation: CarlosItem
+      productInformation: this.props.productProp,
     };
-    console.log(CarlosItem);
+    // console.log(this.props.productProp);
   }
-buildRelatedItemsString = (items:string[] | undefined) =>{
-  // let relatedItems =  this.state.productInformation.relatedItems?.map((item:string) => {item + ", "});
-  // return relatedItems;
-}
+  buildRelatedItemsString = (items: string[] | undefined) => {
+    // let relatedItems =  this.state.productInformation.relatedItems?.map((item:string) => {item + ", "});
+    // return relatedItems;
+  };
   render() {
     return (
       <>
-        <KDANavbar />
-        {/* Image goes first */}
-        {/* Quick reference card info next */}
-        {/* Product Description */}
-        {/* Additional Information */}
         <br />
         <Grid
           container
@@ -55,6 +46,7 @@ buildRelatedItemsString = (items:string[] | undefined) =>{
             <Descriptions
               title="Quick Information"
               bordered
+              layout="vertical"
               column={{ xxl: 4, xl: 3, lg: 3, md: 3, sm: 2, xs: 1 }}
             >
               <Descriptions.Item label="Product Name">
@@ -64,10 +56,10 @@ buildRelatedItemsString = (items:string[] | undefined) =>{
                 {this.state.productInformation.snap ? "Eligible" : "Ineligible"}
               </Descriptions.Item>
               <Descriptions.Item label="Regulatory Requirements">
-                {this.state.productInformation.regulatoryRequirements}
+                {this.state.productInformation.requirements.toString()}
               </Descriptions.Item>
               <Descriptions.Item label="Examples">
-                {this.state.productInformation.examples}
+                {this.state.productInformation.examples?.toString()}
               </Descriptions.Item>
               <Descriptions.Item label="Related Items">
                 {this.state.productInformation.relatedItems?.toString()}
@@ -91,7 +83,6 @@ buildRelatedItemsString = (items:string[] | undefined) =>{
           <Grid item xs={12} md lg xl></Grid>
         </Grid>
         <br />
-        <KDAFooter />
       </>
     );
   }
