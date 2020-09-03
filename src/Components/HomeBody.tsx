@@ -1,8 +1,10 @@
 import React from 'react';
-import { Button } from 'antd';
+import {Button} from 'antd';
 import "../CSS/Homepage.css";
 //import Data from "../Data/FoodType.json";
 import RightData from "../Data/FoodCategories.json";
+
+import {ProductBody} from "./ProductBody";
 //import { useHistory } from "react-router-dom";
 
 //<button onClick={() => useHistory().goBack()}>Back</button>
@@ -59,6 +61,14 @@ export class HomeBody extends React.Component {
         RightData.types.forEach((data) => {
             if(data.id === this.comment.currentID)
             {
+                console.log(data.productPage);
+                if(data.productPage)
+                return (
+                    <>
+                        <p>HELLO</p>
+                            <ProductBody />
+                    </>
+                );
                 //console.log("NEW ID:" + this.comment.currentID);
                 //console.log("Type: "+ Data.title[val]);
                 //return "HI" + Data.title[val];
@@ -68,7 +78,7 @@ export class HomeBody extends React.Component {
         });
 
         return this.comment.titles.map( (data) => {
-            let replace = '/' + data.replace(" ","_").toLowerCase();
+            let replace = '/' + data.replace(/ /g,"_").toLowerCase();
             if(this.comment.url !== '/')
             {
                 replace = this.comment.url + replace;
@@ -106,7 +116,7 @@ export class HomeBody extends React.Component {
         //console.log("LastBitofURL: " + lastUrl);
 
         RightData.types.forEach( (data) => {
-            if(data.parent.replace(' ','_').toLowerCase() === lastUrl)
+            if(data.parent.replace(/ /g,'_').toLowerCase() === lastUrl)
             {
                 this.comment.currentID = data.id;
             }

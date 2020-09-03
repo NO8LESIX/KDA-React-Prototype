@@ -103,6 +103,8 @@ export class ProductBody extends React.Component<
                         <Col span={12}>{this.comment.home.requirements}</Col>
                     </Row>
                 </div>
+                <div className="divide divideBottom">
+                </div>
 
             </>
         );
