@@ -1,7 +1,7 @@
 import { ProductInfo, ProductList, ProductTypes} from "../Data/types";
 
 export const TestCarrots: ProductInfo = {
-        name: "carrots", 
+        name: "Carrots",
         category: ProductTypes.Produce, 
         description: "long orange things that are vegetables",
         snap: true, 

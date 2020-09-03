@@ -54,7 +54,7 @@ export default function App() {
             <Route exact path="/produce/:id/:id">
               <ProductPage />
             </Route>
-            <Route path="/report">
+            <Route exact path="/report">
                 <FileReport />
             </Route>
             <Route path="/references">
