@@ -12,6 +12,7 @@ import {
 import { QuestionCircleOutlined } from "@ant-design/icons";
 import { ProductInfo } from "../Data/types";
 import "../CSS/CreateNewItemForm.css"
+import TextArea from "antd/lib/input/TextArea";
 
 //this will be replaced by the JSON tree path to make editing existing items easier.
 const residences = [
@@ -81,7 +82,9 @@ export default class CNIRegulationForm extends React.Component {
     regulations: [] as string[],
     relatedItem: "",
     relatedItems: [] as string[],
-  }
+    example: "",
+    examples: [] as string[],
+   }
 
 
   handleChangeReg = (e: any) => {
@@ -98,18 +101,32 @@ export default class CNIRegulationForm extends React.Component {
     console.log(e.target.value);
   }
 
+  handleChangeExample = (e: any) => {
+    this.setState({
+      example: e.target.value
+    });
+    console.log(e.target.value);
+  }
+
   addRequirement = () => {
-    var regArray = this.state.regulations.slice();
+    var regArray = this.state.regulations;
     regArray.push(this.state.regulation);
     this.setState({regulations: regArray});
     console.log("Regulations:", this.state.regulations)
   }
 
   addItem = () => {
-    var relArray = this.state.relatedItems.slice();
+    var relArray = this.state.relatedItems;
     relArray.push(this.state.relatedItem);
     this.setState({relatedItems: relArray});
     console.log("relatedItems:", this.state.relatedItems)
+  }
+
+  addExample = () => {
+    var exArray = this.state.examples;
+    exArray.push(this.state.example);
+    this.setState({examples: exArray});
+    console.log("relatedItems:", this.state.examples)
   }
 
   onFinish = (values: any) => {
@@ -118,10 +135,12 @@ export default class CNIRegulationForm extends React.Component {
       name: values.name,
       category: values.category,
       description: values.description,
-      snap: values.snap,
+      snap: (values.snap? true : false),
+      regulatoryRequirements: values.regulatoryRequirements,
       requirements:  this.state.regulations,
+      examples: this.state.examples,
       relatedItems: this.state.relatedItems,
-      url: values.url
+      url: (values.url? values.url : "default link. TBD.")
     }
     console.log("Prod:", product);
   };
@@ -140,21 +159,6 @@ export default class CNIRegulationForm extends React.Component {
           }}
           scrollToFirstError
         >
-        
-
-          {/* <Form.Item
-            name="residence"
-            label="Habitual Residence"
-            rules={[
-              {
-                type: "array",
-                required: true,
-                message: "Please select your habitual residence!",
-              },
-            ]}
-          >
-            <Cascader options={residences} />
-          </Form.Item> */}
 
           <Form.Item
             name="name"
@@ -221,12 +225,38 @@ export default class CNIRegulationForm extends React.Component {
 
           <Form.Item
             name="snap"
+            label={
+              <span>
+                SNAP Eligible&nbsp;
+                <Tooltip title="Provide extra information about the product.">
+                  <QuestionCircleOutlined />
+                </Tooltip>
+              </span>
+            }
             valuePropName="checked"
-            {...tailFormItemLayout}
+            >            
+            <Checkbox></Checkbox>
+          </Form.Item>
+
+          <Form.Item
+            name="regulatoryRequirements"
+            label={
+              <span>
+                Regulatory Requirements&nbsp;
+                <Tooltip title="What regulations are required of this product?">
+                  <QuestionCircleOutlined />
+                </Tooltip>
+              </span>
+            }
+            rules={[
+              {
+                required: true,
+                message: "You must provide a requirement!",
+                whitespace: true,
+              },
+            ]}
           >
-            <Checkbox>
-              Check if product is SNAP Eligible.
-            </Checkbox>
+            <TextArea rows={4}/>
           </Form.Item>
 
           <Form.Item
@@ -239,27 +269,44 @@ export default class CNIRegulationForm extends React.Component {
                 </Tooltip>
               </span>
             }
-            // rules={[
-            //   {
-            //     required: true,
-            //     message: "You must provide at least one requirement!",
-            //     whitespace: true,
-            //   },
-            // ]}
           >
             <Input onChange={this.handleChangeReg}/>
-
-            <Form.Item {...tailFormItemLayout}>
-              <Button className="addButton" type="primary" htmlType="button" onClick={this.addRequirement}>
+              <Button className="addButton" type="default" htmlType="button" onClick={this.addRequirement}>
                 Add Requirement
               </Button>
-            </Form.Item>
 
             <Grid container direction="column">
                 {this.state.regulations.map(regulation => {
                   return (
                     <Grid item>
                       <Typography variant="subtitle1">{regulation}</Typography>
+                    </Grid>
+                  )
+                })}
+            </Grid>
+          </Form.Item>
+
+          <Form.Item
+            name="examples"
+            label={
+              <span>
+                Examples of this item&nbsp;
+                <Tooltip title="What are some examples of this product?">
+                  <QuestionCircleOutlined />
+                </Tooltip>
+              </span>
+            }
+          >
+            <Input onChange={this.handleChangeExample}/>
+              <Button className="addButton" type="default" htmlType="button" onClick={this.addExample}>
+                Add Example
+              </Button>
+
+            <Grid container direction="column">
+                {this.state.examples.map(example => {
+                  return (
+                    <Grid item>
+                      <Typography variant="subtitle1">{example}</Typography>
                     </Grid>
                   )
                 })}
@@ -278,12 +325,9 @@ export default class CNIRegulationForm extends React.Component {
             }
           >
             <Input onChange={this.handleChangeRelated}/>
-
-            <Form.Item {...tailFormItemLayout}>
-              <Button className="addButton" type="primary" htmlType="button" onClick={this.addItem}>
+              <Button className="addButton" type="default" htmlType="button" onClick={this.addItem}>
                 Add Related Item
               </Button>
-            </Form.Item>
 
             <Grid container direction="column">
                 {this.state.relatedItems.map(relatedItem => {
@@ -301,7 +345,7 @@ export default class CNIRegulationForm extends React.Component {
             label={
               <span>
                 URL&nbsp;
-                <Tooltip title="Is there a helpful link for this product?">
+                <Tooltip title="Is there an image link for this product?">
                   <QuestionCircleOutlined />
                 </Tooltip>
               </span>
@@ -320,7 +364,7 @@ export default class CNIRegulationForm extends React.Component {
                 validator: (_, value) =>
                   value
                     ? Promise.resolve()
-                    : Promise.reject("Should accept agreement"),
+                    : Promise.reject("Should acknowledge the information."),
               },
             ]}
             {...tailFormItemLayout}
@@ -330,7 +374,7 @@ export default class CNIRegulationForm extends React.Component {
             </Checkbox>
           </Form.Item>
           <Form.Item {...tailFormItemLayout}>
-            <Button type="primary" htmlType="submit">
+            <Button type="default" htmlType="submit">
               Register
             </Button>
           </Form.Item>
