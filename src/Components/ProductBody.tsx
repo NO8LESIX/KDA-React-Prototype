@@ -99,9 +99,7 @@ export class ProductBody extends React.Component<
                         <Col span={12}>{this.comment.home.category}</Col>
                         <Col span={12}>Description: </Col>
                         <Col span={12}>{this.comment.home.description}</Col>
-                        <Col span={12}>Snap Eligible?: </Col>
-                        <Col span={12}>{this.comment.home.snap}</Col>
-                        <Col span={12}>Requirements: </Col>
+                        <Col span={12}>Regulatory Requirements: </Col>
                         <Col span={12}>{this.comment.home.requirements}</Col>
                     </Row>
                 </div>
