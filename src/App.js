@@ -16,7 +16,6 @@ import SearchResultsPage from "./Pages/SearchResultsPage";
 export default function App() {
   return (
     <>
-    <div className="AppSize">
       <Router>
         <div>
           {/* A <Switch> looks through its children <Route>s and
@@ -56,16 +55,16 @@ export default function App() {
               <ProductPage />
             </Route>
             <Route exact path="/report">
-                <FileReport />
+              <FileReport />
             </Route>
             <Route path="/references">
               <Reference />
             </Route>
             <Route path="/coeregulations">
               <COERegulations />
-              </Route>
+            </Route>
             <Route path="/search">
-                <SearchResults />
+              <SearchResults />
             </Route>
             <Route path="/updates">
               <Updates />
@@ -73,7 +72,6 @@ export default function App() {
           </Switch>
         </div>
       </Router>
-      </div>
     </>
   );
 }
