@@ -55,16 +55,16 @@ export default function App() {
               <ProductPage />
             </Route>
             <Route exact path="/report">
-                <FileReport />
+              <FileReport />
             </Route>
             <Route path="/references">
               <Reference />
             </Route>
             <Route path="/coeregulations">
               <COERegulations />
-              </Route>
+            </Route>
             <Route path="/search">
-                <SearchResults />
+              <SearchResults />
             </Route>
             <Route path="/updates">
               <Updates />
