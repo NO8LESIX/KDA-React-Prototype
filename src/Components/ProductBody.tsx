@@ -61,9 +61,12 @@ export class ProductBody extends React.Component<
           name: TestProductList[testProductListKey].name,
           category: TestProductList[testProductListKey].category,
           description: TestProductList[testProductListKey].description,
-          snap: true,
+          snap: TestProductList[testProductListKey].snap,
           regulatoryRequirements: TestProductList[testProductListKey].regulatoryRequirements,
-          relatedItems: TestProductList[testProductListKey].relatedItems
+          requiredLicenses: TestProductList[testProductListKey].requiredLicenses,
+          productTesting: TestProductList[testProductListKey].productTesting,
+          relatedItems: TestProductList[testProductListKey].relatedItems,
+          imageURL: TestProductList[testProductListKey].imageURL,
         };
       }
     }
