@@ -2,6 +2,7 @@ import React from "react";
 import { Grid } from "@material-ui/core";
 import { Descriptions } from "antd";
 import { ProductInfo } from "../Data/types";
+import {TestUncutProduce} from "../Data/TestData";
 //import { ProductInfo, ProductTypes, TestName } from "../Data/types";
 
 interface RegulationsDisplayProps {
@@ -81,7 +82,7 @@ export class RegulationsDisplay extends React.Component<
                 {this.state.productInformation.relatedItems? this.state.productInformation.relatedItems : "No Examples"}
               </Descriptions.Item>
               <Descriptions.Item label="Related Items">
-                {this.state.productInformation.relatedItems?.toString()}
+                {this.state.productInformation.relatedItems? this.state.productInformation.relatedItems : "FAILURE"}
               </Descriptions.Item>
               <Descriptions.Item label="Licenses Required">
                 {this.state.productInformation.productTesting?.toString()}
