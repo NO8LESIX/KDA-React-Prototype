@@ -160,7 +160,11 @@ export default class CNIRegulationForm extends React.Component {
           //testing data id for tests
           data-testid="FormContainer"
         >
-
+          <Grid container alignItems="center" className="formTitle">
+            <Typography variant="h5">
+              Create New Product Regulation
+            </Typography>
+          </Grid>
           <Form.Item
             name="name"
             label={
