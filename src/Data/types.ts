@@ -5,8 +5,28 @@ export enum ProductTypes {
     Canned = "Canned Goods",
 }
 
-export enum ProductLicenses{
+export enum TestName{
+    WaterActivity = "Product Water Activity",
+    WaterActivityOfFilling = "Water Activity of Filling",
+    WaterActivityOfIcing = "Water Activity of Icing",
+    PHActivity = " Product Water Activity",
+    ProductFormulation = " Product Formulation",
+}
+
+export interface ProductTesting{
+    testName: TestName,
+    notes: string,
+    urlRedirect: string,
+}
+
+export enum ProductLicense{
     KDALicense = "Kansas Departemnt of Agriculture License"
+}
+
+export interface ProductLicenses{
+    name: ProductLicense,
+    description: string,
+    urlRedirect: string,
 }
 
 export interface ProductInfo {
@@ -14,11 +34,11 @@ export interface ProductInfo {
     category: ProductTypes,
     description: string,
     snap: boolean,
-    regulatoryRequirements?: string,
-    examples?: string[],
-    requirements: string[],
+    regulatoryRequirements: string,
+    requiredLicenses?: ProductLicenses[],
+    productTesting?: ProductTesting[],
     relatedItems?: string[],
-    url?: string,
+    imageURL?: string,
 }
 
 export interface ProductList {
