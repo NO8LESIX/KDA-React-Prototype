@@ -1,5 +1,5 @@
 import React from "react";
-import { Typography } from "@material-ui/core";
+import { Typography, Grid, Divider, List } from "@material-ui/core";
 import "antd/dist/antd.css";
 import { Layout } from "antd";
 import KDANavbar from "../Components/KDANavbar";
@@ -38,9 +38,13 @@ export default class SearchResultsPage extends React.Component<
         const product = Object.values(this.state.productList)[index];
       
         return (
-            <ListItem button style={style} key={product.name}>
-                <ListItemText primary={product.name} secondary={product.description.substring(0, 50)}/>
-            </ListItem>
+            <React.Fragment>
+                <ListItem button style={style} key={product.name} className="resultItem">
+                    <ListItemText primary={product.name} secondary={product.description.substring(0, 50)}/>
+                </ListItem>
+                <Divider variant="inset" component="li" />
+            </React.Fragment>
+
         );
       }
 
@@ -50,14 +54,35 @@ export default class SearchResultsPage extends React.Component<
         return (
                 <Layout>
                     <KDANavbar />
-                    <div className="results">
-                        <Typography component="h1"> Results </Typography>
-                        <FixedSizeList height={500} width={"100%"} itemSize={46} itemCount={Object.values(this.state.productList).length}>
-                            {this.renderRow}
-                        </FixedSizeList>
-                    </div>
+                    <Grid container direction="column" className="results">
+                        <Grid item className="resultsTitle">
+                            <Typography variant="h4" className="resultsTitleText"> Search Results </Typography>
+                        </Grid>
+                        <Divider/>
+                        <Grid item container className="resultsContainer">
+                            <List className = "resultsList" disablePadding>
+                                {Object.values(this.state.productList).concat(Object.values(this.state.productList)).concat(Object.values(this.state.productList)).map(product => (
+                                <React.Fragment key = {product.name}>
+                                    <ListItem button key={product.name} className="resultItem">
+                                        <ListItemText primary={product.name} secondary={product.description.substring(0, 50)}/>
+                                    </ListItem>
+                                    <Divider variant="fullWidth" component="li" className="divider"/>
+                                </React.Fragment>
+                                )) }
+                            </List>
+                        </Grid>
+                   
+                    </Grid>
                     <KDAFooter />
                 </Layout>
         );
     }
 }
+/*
+
+                        <FixedSizeList height={500} width={"100%"} itemSize={46} itemCount={Object.values(this.state.productList).length} >
+                            {this.renderRow}
+                        </FixedSizeList>
+
+
+*/
