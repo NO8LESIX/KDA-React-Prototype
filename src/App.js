@@ -8,16 +8,17 @@ import AboutPage from "./Pages/AboutPage";
 import SNAPInfoPage from "./Pages/SNAPInfoPage";
 import FileReportPage from "./Pages/FileReportPage";
 import ReferencePage from "./Pages/ReferencePage";
+import { COERegulationsPage } from "./Pages/COERegulationsPage";
 import ProducePage from "./Pages/ProductTypePage";
 import UpdatesPage from "./Pages/UpdatesPage";
 import SearchResultsPage from "./Pages/SearchResultsPage";
 
 export default function App() {
-    return (
-        <>
-            <Router>
-                <div>
-                    {/* A <Switch> looks through its children <Route>s and
+  return (
+    <>
+      <Router>
+        <div>
+          {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
           <Switch>
             <Route exact path="/">
@@ -54,13 +55,16 @@ export default function App() {
               <ProductPage />
             </Route>
             <Route exact path="/report">
-                <FileReport />
+              <FileReport />
             </Route>
             <Route path="/references">
               <Reference />
             </Route>
+            <Route path="/coeregulations">
+              <COERegulations />
+            </Route>
             <Route path="/search">
-                <SearchResults />
+              <SearchResults />
             </Route>
             <Route path="/updates">
               <Updates />
@@ -71,7 +75,6 @@ export default function App() {
     </>
   );
 }
-
 function Home() {
   return <Homepage />;
 }
@@ -94,16 +97,19 @@ function SNAPInfo() {
 }
 
 function FileReport() {
-    return <FileReportPage />;
+  return <FileReportPage />;
 }
 function Reference() {
-    return <ReferencePage />;
+  return <ReferencePage />
 }
-function Updates() {
-  return <UpdatesPage />
+function COERegulations() {
+  return <COERegulationsPage />
 }
 function SearchResults() {
     return <SearchResultsPage />
+}
+function Updates() {
+    return <UpdatesPage />
 }
 function ReactDefault() {
   return (
@@ -113,15 +119,15 @@ function ReactDefault() {
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
-                    <a
-                        className="App-link"
-                        href="https://reactjs.org"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        Learn React
+        <a
+          className="App-link"
+          href="https://reactjs.org"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Learn React
         </a>
-                </header>
-            </div>
-        );
-    }
+      </header>
+    </div>
+  );
+}
