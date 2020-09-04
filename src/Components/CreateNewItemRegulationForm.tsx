@@ -10,7 +10,7 @@ import {
   Button,
 } from "antd";
 import { QuestionCircleOutlined } from "@ant-design/icons";
-import { ProductInfo } from "../Data/types";
+import { ProductInfo, ProductLicense, ProductLicenses, ProductTesting } from "../Data/types";
 import "../CSS/CreateNewItemForm.css"
 import TextArea from "antd/lib/input/TextArea";
 
@@ -78,18 +78,18 @@ const tailFormItemLayout = {
 export default class CNIRegulationForm extends React.Component {
 
   state = {
-    regulation: "",
-    regulations: [] as string[],
+    license: "",
+    licenses: [] as string[],
     relatedItem: "",
     relatedItems: [] as string[],
-    example: "",
-    examples: [] as string[],
+    test: "",
+    tests: [] as string[],
    }
 
 
-  handleChangeReg = (e: any) => {
+  handleChangeLicense = (e: any) => {
     this.setState({
-      regulation: e.target.value
+      license: e.target.value
     });
     console.log(e.target.value);
   }
@@ -101,18 +101,18 @@ export default class CNIRegulationForm extends React.Component {
     console.log(e.target.value);
   }
 
-  handleChangeExample = (e: any) => {
+  handleChangeTest = (e: any) => {
     this.setState({
-      example: e.target.value
+      test: e.target.value
     });
     console.log(e.target.value);
   }
 
-  addRequirement = () => {
-    var regArray = this.state.regulations;
-    regArray.push(this.state.regulation);
-    this.setState({regulations: regArray});
-    console.log("Regulations:", this.state.regulations)
+  addLicense = () => {
+    var regArray = this.state.licenses;
+    regArray.push(this.state.license);
+    this.setState({licenses: regArray});
+    console.log("Regulations:", this.state.licenses)
   }
 
   addItem = () => {
@@ -122,11 +122,11 @@ export default class CNIRegulationForm extends React.Component {
     console.log("relatedItems:", this.state.relatedItems)
   }
 
-  addExample = () => {
-    var exArray = this.state.examples;
-    exArray.push(this.state.example);
-    this.setState({examples: exArray});
-    console.log("relatedItems:", this.state.examples)
+  addTest = () => {
+    var exArray = this.state.tests;
+    exArray.push(this.state.test);
+    this.setState({tests: exArray});
+    console.log("relatedItems:", this.state.tests)
   }
 
   onFinish = (values: any) => {
@@ -137,10 +137,10 @@ export default class CNIRegulationForm extends React.Component {
       description: values.description,
       snap: (values.snap? true : false),
       regulatoryRequirements: values.regulatoryRequirements,
-      requirements:  this.state.regulations,
-      examples: this.state.examples,
+      //requiredLicenses: this.state.licenses,
+      //productTesting: this.state.tests,
       relatedItems: this.state.relatedItems,
-      url: (values.url? values.url : "default link. TBD.")
+      imageURL: (values.url? values.url : "default link. TBD.")
     }
     console.log("Prod:", product);
   };
@@ -260,26 +260,26 @@ export default class CNIRegulationForm extends React.Component {
           </Form.Item>
 
           <Form.Item
-            name="requirements"
+            name="licenses"
             label={
               <span>
-                Product Requirements&nbsp;
-                <Tooltip title="What requirements are associated with this product?">
+                Required Licenses&nbsp;
+                <Tooltip title="What licenses are required for this product?">
                   <QuestionCircleOutlined />
                 </Tooltip>
               </span>
             }
           >
-            <Input onChange={this.handleChangeReg}/>
-              <Button className="addButton" type="default" htmlType="button" onClick={this.addRequirement}>
-                Add Requirement
+            <Input onChange={this.handleChangeLicense}/>
+              <Button className="addButton" type="default" htmlType="button" onClick={this.addLicense}>
+                Add License
               </Button>
 
             <Grid container direction="column">
-                {this.state.regulations.map(regulation => {
+                {this.state.licenses.map(license => {
                   return (
                     <Grid item>
-                      <Typography variant="subtitle1">{regulation}</Typography>
+                      <Typography variant="subtitle1">{license}</Typography>
                     </Grid>
                   )
                 })}
@@ -287,26 +287,26 @@ export default class CNIRegulationForm extends React.Component {
           </Form.Item>
 
           <Form.Item
-            name="examples"
+            name="testing"
             label={
               <span>
-                Examples of this item&nbsp;
-                <Tooltip title="What are some examples of this product?">
+                Required Testing&nbsp;
+                <Tooltip title="What testing is required for this product?">
                   <QuestionCircleOutlined />
                 </Tooltip>
               </span>
             }
           >
-            <Input onChange={this.handleChangeExample}/>
-              <Button className="addButton" type="default" htmlType="button" onClick={this.addExample}>
-                Add Example
+            <Input onChange={this.handleChangeTest}/>
+              <Button className="addButton" type="default" htmlType="button" onClick={this.addTest}>
+                Add Test
               </Button>
 
             <Grid container direction="column">
-                {this.state.examples.map(example => {
+                {this.state.tests.map(test => {
                   return (
                     <Grid item>
-                      <Typography variant="subtitle1">{example}</Typography>
+                      <Typography variant="subtitle1">{test}</Typography>
                     </Grid>
                   )
                 })}
