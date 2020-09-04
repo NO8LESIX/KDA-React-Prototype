@@ -56,12 +56,17 @@ export class ProductBody extends React.Component<
 
     for (let testProductListKey in TestProductList) {
       if (testProductListKey === idName) {
+        console.log("IT MATCHES");
         par = {
           name: TestProductList[testProductListKey].name,
           category: TestProductList[testProductListKey].category,
           description: TestProductList[testProductListKey].description,
-          snap: true,
+          snap: TestProductList[testProductListKey].snap,
           regulatoryRequirements: TestProductList[testProductListKey].regulatoryRequirements,
+          requiredLicenses: TestProductList[testProductListKey].requiredLicenses,
+          productTesting: TestProductList[testProductListKey].productTesting,
+          relatedItems: TestProductList[testProductListKey].relatedItems,
+          imageURL: TestProductList[testProductListKey].imageURL,
         };
       }
     }
