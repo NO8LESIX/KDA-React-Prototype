@@ -7,9 +7,7 @@ import RightData from "../Data/FoodCategories.json";
 import { RegulationsDisplay } from "./RegulationsDisplay";
 
 interface RegulationsPageProps {}
-interface RegulationsPageState {
-    
-}
+interface RegulationsPageState {}
 
 export class ProductBody extends React.Component<
   RegulationsPageProps,
@@ -53,7 +51,7 @@ export class ProductBody extends React.Component<
       category: ProductTypes.Processed,
       description: "Item not Found",
       snap: true,
-      requirements: ["Default", "Requirements"],
+      regulatoryRequirements: "Default Requirements",
     };
 
     for (let testProductListKey in TestProductList) {
@@ -64,7 +62,7 @@ export class ProductBody extends React.Component<
           category: TestProductList[testProductListKey].category,
           description: TestProductList[testProductListKey].description,
           snap: true,
-          requirements: TestProductList[testProductListKey].requirements,
+          regulatoryRequirements: TestProductList[testProductListKey].regulatoryRequirements,
         };
       }
     }

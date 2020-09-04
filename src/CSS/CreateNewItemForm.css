@@ -1,0 +1,9 @@
+.form {
+    align-items: center;
+    margin-right: 15%;
+    background-color: solid gray;
+}
+
+.addButton {
+    margin-top: 20px;
+}

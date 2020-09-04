@@ -6,6 +6,7 @@ import KDANavbar from "../Components/KDANavbar";
 import KDAFooter from "../Components/KDAFooter";
 import "../CSS/FileReportPage.css";
 
+
 export default class FileReportPage extends React.Component {
     render() {
         return (

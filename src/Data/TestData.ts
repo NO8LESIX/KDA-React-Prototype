@@ -5,7 +5,7 @@ export const TestCarrots: ProductInfo = {
         category: ProductTypes.Produce, 
         description: "long orange things that are vegetables",
         snap: true, 
-        requirements: ["please no stems", "washed"], 
+        regulatoryRequirements: "Please, no stems. Washed", 
         relatedItems:  ["tomatoes", "rabbits"] 
 } 
 
@@ -15,8 +15,6 @@ export const TestTomatoes: ProductInfo = {
     description: "red sphere of water juice",
     snap: true,
     regulatoryRequirements: "none",
-    examples: ["none"],
-    requirements: ["clean", "washed"],
     relatedItems: ["carrots"]
 }
 
@@ -25,7 +23,7 @@ export const CarlosItem: ProductInfo = {
     category: ProductTypes.Produce, 
     description: "The best fruit",
     snap: true, 
-    requirements: ["please no stems", "washed"], 
+    regulatoryRequirements: "Please no stems. Washed", 
     relatedItems:  ["Pinappples", "Guavas"] 
 } 
 
@@ -34,7 +32,7 @@ export const TestJams: ProductInfo = {
     category: ProductTypes.Canned,
     description: "like jelly but not",
     snap: false,
-    requirements: ["canned or jarred"],
+    regulatoryRequirements: "canned or jarred",
 }
 
 export const TestBread: ProductInfo = {
@@ -42,7 +40,7 @@ export const TestBread: ProductInfo = {
     category: ProductTypes.Baked, 
     description: "bread description placeholder",
     snap: true,
-    requirements: ["fully baked"],
+    regulatoryRequirements: "fully baked",
     relatedItems: ["toast", "bagels"]
 }
 
@@ -51,7 +49,7 @@ export const TestProcessedCheese: ProductInfo = {
     category: ProductTypes.Processed,
     description: "processed cheese is bad cheese",
     snap: false,
-    requirements: ["processed cheese"],
+    regulatoryRequirements: "processed cheese",
     relatedItems: ["milk"]
 }
 

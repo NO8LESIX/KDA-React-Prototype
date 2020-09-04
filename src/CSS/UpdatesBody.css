@@ -8,8 +8,9 @@
 
 .updateTitle { 
     background-image: linear-gradient(#4f2684,#7137bd);
-}
+    color: white;
 
+}
 
 
 svg {
