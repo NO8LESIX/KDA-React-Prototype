@@ -5,11 +5,22 @@ import "../CSS/Homepage.css";
 import RightData from "../Data/FoodCategories.json";
 
 import { ProductBody } from "./ProductBody";
+import { StarOutlined, StarFilled, StarTwoTone } from '@ant-design/icons';
+import {Star} from "@material-ui/icons";
 //import { useHistory } from "react-router-dom";
 
 //<button onClick={() => useHistory().goBack()}>Back</button>
 
-export class HomeBody extends React.Component {
+export class HomeBody extends React.Component<{}, {isToggleOn: boolean}> {
+
+
+  constructor(props: any) {
+    super(props);
+    this.state = {isToggleOn: true};
+
+    this.changerStar = this.changerStar.bind(this);
+  }
+
   //Properties accessed in methods below to store temporary variables
   comment = {
     currentID: 0,
@@ -18,19 +29,34 @@ export class HomeBody extends React.Component {
     titles: [""],
     subcategories: [0],
     url: window.location.pathname,
+    star: StarOutlined,
+    starName: "Hello",
+    starState: true,
   };
 
   //Renders display
   render() {
     return (
-      <>
-        <div className="divide">
-          <p className="header">{this.getParent(this.getID())}</p>
-        </div>
-        <div id="boxes">{this.renderButtons()}</div>
-        <div className="divide divideBottom"></div>
-      </>
+        <>
+          <div className="divide">
+            <p className="header">{this.getParent(this.getID())}</p>
+          </div>
+          <div id="boxes">{this.renderButtons()}</div>
+          <div className="divide divideBottom"></div>
+        </>
     );
+  }
+
+  changerStar(name: string) {
+    this.setState(prevState => ({
+      isToggleOn: !prevState.isToggleOn
+    }));
+    console.log("Current Name:" + name);
+    RightData.types.forEach((data) => {
+      if (data.parent === name) {
+        data.starState = !data.starState;
+      }
+    })
   }
 
   renderButtons() {
@@ -39,10 +65,10 @@ export class HomeBody extends React.Component {
         console.log(data.productPage);
         if (data.productPage)
           return (
-            <>
-              <p>HELLO</p>
-              <ProductBody />
-            </>
+              <>
+                <p>HELLO</p>
+                <ProductBody/>
+              </>
           );
         //console.log("NEW ID:" + this.comment.currentID);
         //console.log("Type: "+ Data.title[val]);
@@ -58,11 +84,33 @@ export class HomeBody extends React.Component {
       }
       // console.log("URL NAV: "+replace);
       return (
-        <Button className="buttons" type="primary" shape="round">
-          <a href={"" + replace}>{data}</a>
-        </Button>
+          <Button className="buttons" type="primary" shape="round">
+            <a href={"" + replace}>{data}</a>
+            < a onClick={() => this.changerStar(data)} id="stars">{this.getStarState(data) ? <StarFilled/> : <StarOutlined/>}</a>
+          </Button>
       );
     });
+  }
+
+  getStarState(name:string){
+
+    RightData.types.forEach((data) => {
+      if(data.parent === name)
+      {
+        console.log("STAR STATE: "+ data.starState);
+        if(data.starState)
+        {
+          this.comment.starState = true;
+        }
+        else
+        {
+          this.comment.starState = false;
+        }
+      }
+    });
+
+
+    return this.comment.starState;
   }
 
   //Retrieves Header

@@ -165,7 +165,7 @@ export default class KDANavbar extends React.Component<KDANavbarProps, KDANavbar
                 item
                 xs={12}
                 sm = {11}
-                md
+                md = {6}
                 lg
                 xl
                 className="centerIcon"
@@ -179,7 +179,7 @@ export default class KDANavbar extends React.Component<KDANavbarProps, KDANavbar
                   />
                 </a>
               </Grid>
-            <Grid item xs={12} sm={12} md lg xl className="search">
+            <Grid item xs={12} sm={12} md={5} lg xl className="search">
               <Paper component="form" className="searchPaper" onSubmit={this.onSubmitSearch}>
                 <InputBase
                 placeholder="Search Products"

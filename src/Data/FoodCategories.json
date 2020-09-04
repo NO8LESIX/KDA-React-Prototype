@@ -1,14 +1,14 @@
 {
   "types" : [
-    { "id": 0, "parent": "Browse Regulations by Food Type:", "title": ["Produce", "Baked", "Processed", "Canned"], "productPage": false, "subcategories": [1,2,3,4]},
-    { "id": 1, "parent": "Produce", "title": ["Fresh (or dried) Uncut Produce", "Certain Cut Produce and Cut Herbs","Vegetables", "Fresh Cuts", "Fruits", "Sprouts"], "productPage": false, "subcategories": [5,2,3,4]},
-    { "id": 2, "parent": "Baked", "title": ["Pies", "Cookies", "Bread", "Pecan Pie"], "productPage": false, "subcategories": [1,2,3,4]},
-    { "id": 3, "parent": "Processed", "title": ["Dough", "Vacuum-Packaged", "Non-Specialized", "Temperature-Controlled"], "productPage": false, "subcategories": [1,2,3,4]},
-    { "id": 4, "parent": "Canned", "title": ["Honey", "Nuts and Butters", "Candies", "Lard"], "productPage": false, "subcategories": [1,2,3,4]},
-    { "id": 5, "parent": "Vegetables", "title": ["Carrots", "Peas", "Broccoli", "Corn"], "productPage": false, "subcategories": [6,7,8,9]},
-    { "id": 6, "parent": "Fresh Cuts", "title": ["Cut Berries", "Cut Herbs", "Cut Carrots", "Cut Greens"], "productPage": false, "subcategories": [6,7,8,9]},
-    { "id": 7, "parent": "Fruits", "title": ["Tomatoes", "Apple", "Orange", "Apricot"], "productPage": false, "subcategories": [6,7,8,9]},
+    { "id": 0, "parent": "Browse Regulations by Food Type:", "title": ["Produce", "Baked", "Processed", "Canned"], "productPage": false, "starState": false, "subcategories": [1,2,3,4]},
+    { "id": 1, "parent": "Produce", "title": ["Fresh (or dried) Uncut Produce", "Certain Cut Produce and Cut Herbs","Nuts and Nut Butters", "Cultivated Mushrooms"], "productPage": false, "starState": false, "subcategories": [5,2,3,4]},
+    { "id": 2, "parent": "Baked", "title": ["Pies", "Cookies", "Bread", "Pecan Pie"], "productPage": false, "starState": false, "subcategories": [1,2,3,4]},
+    { "id": 3, "parent": "Processed", "title": ["Dough", "Vacuum-Packaged", "Non-Specialized", "Temperature-Controlled"], "productPage": false, "starState": false, "subcategories": [1,2,3,4]},
+    { "id": 4, "parent": "Canned", "title": ["Honey", "Nuts and Butters", "Candies", "Lard"], "productPage": false, "starState": false, "subcategories": [1,2,3,4]},
+    { "id": 5, "parent": "Vegetables", "title": ["Carrots", "Peas", "Broccoli", "Corn"], "productPage": false, "starState": false, "subcategories": [6,7,8,9]},
+    { "id": 6, "parent": "Fresh Cuts", "title": ["Cut Berries", "Cut Herbs", "Cut Carrots", "Cut Greens"], "productPage": false, "starState": false, "subcategories": [6,7,8,9]},
+    { "id": 7, "parent": "Fruits", "title": ["Tomatoes", "Apple", "Orange", "Apricot"], "productPage": false, "starState": false, "subcategories": [6,7,8,9]},
     { "id": 8, "parent": "Sprouts", "title": ["Alfalfa Sprouts", "Bean Sprouts", "Mung Sprouts", "Lentil Sprouts"], "productPage": false, "subcategories": [6,7,8,9]},
-    { "id": 12, "parent": "Fresh (or dried) Uncut Produce", "title": ["Alfalfa Sprouts", "Bean Sprouts", "Mung Sprouts", "Lentil Sprouts"], "productPage": true, "subcategories": [6,7,8,9]}
+    { "id": 12, "parent": "Fresh (or dried) Uncut Produce", "title": ["Alfalfa Sprouts", "Bean Sprouts", "Mung Sprouts", "Lentil Sprouts"], "productPage": true, "starState": false, "subcategories": [6,7,8,9]}
   ]
 }
