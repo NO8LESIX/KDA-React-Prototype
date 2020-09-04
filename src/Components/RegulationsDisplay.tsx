@@ -1,6 +1,6 @@
 import React from "react";
-import { Grid, Button } from "@material-ui/core";
-import { Descriptions, Space } from "antd";
+import { Grid } from "@material-ui/core";
+import { Descriptions, Space, Button } from "antd";
 import { ProductInfo } from "../Data/types";
 import { Image } from 'antd';
 import {HeartOutlined, HeartFilled} from "@ant-design/icons"
@@ -11,7 +11,6 @@ interface RegulationsDisplayProps {
 }
 interface RegulationsDisplayState {
   productInformation: ProductInfo;
-  favorited: boolean;
   favDisplay: JSX.Element;
 }
 // Testing use only
@@ -40,7 +39,6 @@ export class RegulationsDisplay extends React.Component<
     this.state = {
       //productInformation: this.props.productProp,
       productInformation: this.props.productProp,
-      favorited: false,
       favDisplay: <HeartOutlined/>,
     };
     // console.log(this.props.productProp);
@@ -49,12 +47,19 @@ export class RegulationsDisplay extends React.Component<
     // let relatedItems =  this.state.productInformation.relatedItems?.map((item:string) => {item + ", "});
     // return relatedItems;
   };
-  onFavorite = ()  => {
-    let fav:JSX.Element =  this.state.favorited?<HeartFilled/> :<HeartOutlined/>;
-    this.setState({
-      favDisplay: fav
-    });
-    return;
+  
+  onFavorite = (event: React.MouseEvent<HTMLElement, MouseEvent>)  => {
+    if(this.state.favDisplay === <HeartOutlined/>){
+      console.log("HeartFilled");
+      this.setState({
+        favDisplay: <HeartFilled/>,
+      });
+    }else{
+      console.log("HeartOutlined");
+      this.setState({
+        favDisplay: <HeartOutlined/>,
+      });
+    }
   };
 
   render() {
@@ -86,10 +91,11 @@ export class RegulationsDisplay extends React.Component<
               title={this.state.productInformation.name + " Information"}
               bordered
               extra={
-                <Button variant="contained" color="default" onClick={this.onFavorite} >
+                <Button type="default" onClick={(e:React.MouseEvent<HTMLElement, MouseEvent>) => this.onFavorite(e)} >
+                {/* <Button variant="contained" color="default" onClick={this.onFavorite} > */}
                   <Space>
                     {"Favorite"}
-                    <HeartOutlined />
+                    {this.state.favDisplay}
                   </Space>
                 </Button>
               }
