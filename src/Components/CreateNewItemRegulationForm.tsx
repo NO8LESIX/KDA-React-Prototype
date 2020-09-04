@@ -159,7 +159,11 @@ export default class CNIRegulationForm extends React.Component {
           }}
           scrollToFirstError
         >
-
+          <Grid container alignItems="center" className="formTitle">
+            <Typography variant="h5">
+              Create New Product Regulation
+            </Typography>
+          </Grid>
           <Form.Item
             name="name"
             label={
