@@ -5,50 +5,49 @@ import {
   Form,
   Input,
   Tooltip,
-  Cascader,
   Checkbox,
   Button,
 } from "antd";
 import { QuestionCircleOutlined } from "@ant-design/icons";
-import { ProductInfo, ProductLicense, ProductLicenses, ProductTesting } from "../Data/types";
+import { ProductInfo } from "../Data/types";
 import "../CSS/CreateNewItemForm.css"
 import TextArea from "antd/lib/input/TextArea";
 
 //this will be replaced by the JSON tree path to make editing existing items easier.
-const residences = [
-  {
-    value: "itemType",
-    label: "Item",
-    children: [
-      {
-        value: "ProductLabel",
-        label: "ProductLabel",
-        children: [
-          {
-            value: "xihu",
-            label: "West Lake",
-          },
-        ],
-      },
-    ],
-  },
-  {
-    value: "jiangsu",
-    label: "Jiangsu",
-    children: [
-      {
-        value: "nanjing",
-        label: "Nanjing",
-        children: [
-          {
-            value: "zhonghuamen",
-            label: "Zhong Hua Men",
-          },
-        ],
-      },
-    ],
-  },
-];
+// const residences = [
+//   {
+//     value: "itemType",
+//     label: "Item",
+//     children: [
+//       {
+//         value: "ProductLabel",
+//         label: "ProductLabel",
+//         children: [
+//           {
+//             value: "xihu",
+//             label: "West Lake",
+//           },
+//         ],
+//       },
+//     ],
+//   },
+//   {
+//     value: "jiangsu",
+//     label: "Jiangsu",
+//     children: [
+//       {
+//         value: "nanjing",
+//         label: "Nanjing",
+//         children: [
+//           {
+//             value: "zhonghuamen",
+//             label: "Zhong Hua Men",
+//           },
+//         ],
+//       },
+//     ],
+//   },
+// ];
 
 const formItemLayout = {
   labelCol: {
