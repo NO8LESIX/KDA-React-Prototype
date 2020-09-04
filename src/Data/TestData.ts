@@ -55,10 +55,21 @@ export const TestProcessedCheese: ProductInfo = {
     relatedItems: ["milk"]
 }
 
+export const TestUncutFruits: ProductInfo = {
+    name: "Fresh (Or Dried) Uncut Produce",
+    category: ProductTypes.Processed,
+    description: "May be home-grown; any pesticide use must comply with label directions",
+    snap: false,
+    requirements: ["May be home-grown; any pesticide use must comply with label directions"],
+    relatedItems: ["Tomatoes, melons, okra, apples,\n" +
+    "basil"]
+}
+
 export const TestProductList: ProductList = {
     "CARROTS": TestCarrots,
     "TOMATOES": TestTomatoes,
     "JAMS": TestJams,
     "BREAD": TestBread,
-    "PROCESSED CHEESE": TestProcessedCheese
+    "PROCESSED CHEESE": TestProcessedCheese,
+    "FRESH_(OR_DRIED)_UNCUT_PRODUCE": TestUncutFruits,
 }

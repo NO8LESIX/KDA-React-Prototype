@@ -58,6 +58,7 @@ export class ProductBody extends React.Component<
 
     for (let testProductListKey in TestProductList) {
       if (testProductListKey === idName) {
+        console.log("IT MATCHES");
         par = {
           name: TestProductList[testProductListKey].name,
           category: TestProductList[testProductListKey].category,

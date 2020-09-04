@@ -5,6 +5,10 @@
     grid-template-columns: 100%;
 }
 
+#stars {
+    float: right;
+}
+
 .buttons {
     width: 75vw;
     align-content: space-evenly;
@@ -28,6 +32,7 @@
     opacity: 80%
 }
 
+
 .divideBottom {
     height: 10vh;
 }
@@ -40,4 +45,12 @@ p {
     text-align: center;
     padding-top: 1vh;
     padding-bottom: 1vh;
+}
+
+a {
+    color: white;
+}
+
+a:hover {
+    color: black;
 }
