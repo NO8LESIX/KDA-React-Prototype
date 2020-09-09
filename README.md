@@ -1,4 +1,10 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## New Branches
+Need to follow the path from src to the item being manipulated. Do not edit items out of the scope of the current branch. KDANavbar should not have to edit the KDAFooter for example.</br>
+Branch name should go as follows: FileInSRC-NextFileNameIfTherIsOne-FinalFileNameWithoutExtension</br>
+File a new Pull Request once you have completed the changes in your branch and merge into master after a reviewer approves the edits.
+
+## Generating New Files
+All files should follow standard Pascal Case naming comventions when declaring names of Classes, Components and Pages, and other .tsx files See the ReactTutorialComponent.tsx for more information.
 
 ## Available Scripts
 
@@ -6,7 +12,7 @@ In the project directory, you can run:
 
 ### `npm start`
 
-Runs the app in the development mode.<br />
+Runs the app in the development mode. This will also run npm install for you in order to build the required packages. You do not need to restart the development server each time to see your new changes. Simply save the file you are working on and it will refresh your test environment page for you.<br />
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 The page will reload if you make edits.<br />
