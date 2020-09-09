@@ -231,7 +231,7 @@ export default class CNIRegulationForm extends React.Component {
             label={
               <span>
                 SNAP Eligible&nbsp;
-                <Tooltip title="Provide extra information about the product.">
+                <Tooltip title="Is this product SNAP Eligible?">
                   <QuestionCircleOutlined />
                 </Tooltip>
               </span>
