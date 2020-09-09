@@ -5,8 +5,7 @@ import "../CSS/Homepage.css";
 import RightData from "../Data/FoodCategories.json";
 
 import { ProductBody } from "./ProductBody";
-import { StarOutlined, StarFilled, StarTwoTone } from '@ant-design/icons';
-import {Star} from "@material-ui/icons";
+import { StarOutlined } from '@ant-design/icons';
 //import { useHistory } from "react-router-dom";
 
 //<button onClick={() => useHistory().goBack()}>Back</button>
@@ -86,8 +85,7 @@ export class HomeBody extends React.Component<{}, {isToggleOn: boolean}> {
       return (
           <Button className="buttons" type="primary" shape="round">
             <a href={"" + replace}>{data}</a>
-            < a onClick={() => this.changerStar(data)} id="stars">{this.getStarState(data) ? <StarFilled/> : <StarOutlined/>}</a>
-          </Button>
+</Button>
       );
     });
   }

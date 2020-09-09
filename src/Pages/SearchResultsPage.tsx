@@ -7,7 +7,7 @@ import KDAFooter from "../Components/KDAFooter";
 import { ProductList } from "../Data/types";
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
-import { FixedSizeList, ListChildComponentProps } from 'react-window';
+import { ListChildComponentProps } from 'react-window';
 import { TestProductList } from "../Data/TestData";
 import "../CSS/SearchResultsPage.css";
 
