@@ -156,7 +156,9 @@ export default class CNIRegulationForm extends React.Component {
             residence: ["zhejiang", "hangzhou", "xihu"],
             prefix: "86",
           }}
-          scrollToFirstError
+          scrollToFirstError={true}
+          //testing data id for tests
+          data-testid="FormContainer"
         >
           <Grid container alignItems="center" className="formTitle">
             <Typography variant="h5">
